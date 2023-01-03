@@ -2,8 +2,6 @@
   --light: #d8dbe0;
   --dark: #151515;
   scroll-behavior: smooth;
-  --cursorX: -10vw;
-  --cursorY: -10vh;
 }
 
 body {
@@ -24,6 +22,22 @@ body {
 
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.2);
+}
+
+.cursor {
+  pointer-events: none;     
+}
+
+.cursor .ball {
+  position: fixed;
+  top: -50;
+  left: -50;
+  mix-blend-mode: difference;
+  z-index: 1000;
+}
+
+.cursor .ball circle {
+  fill: var(--light);
 }
 
 /* 
@@ -132,13 +146,13 @@ START SWITCH
 END SWITCH
 */
 /* 
-START HEX / NON HEX HELLO WORLD TEXT
+START HELLO WORLD TEXT
 */
 
 .header-container {
   position: relative;
   display: flex;
-  height: 800px;
+  height: 300px;
   opacity: 0;
   transition: 0.5s;
   transition-delay: 0.5s;
@@ -147,7 +161,7 @@ START HEX / NON HEX HELLO WORLD TEXT
 
 .toggle-switch:has(> .switch-input:checked) ~ .header-container {
   opacity: 1;
-  min-height: 800px;
+  min-height: 300px;
   height: 80vh;
   transition: 0.5s;
   transition-delay: 0s;
@@ -172,7 +186,7 @@ START HEX / NON HEX HELLO WORLD TEXT
 }
 
 /* 
-END HEX / NON HEX HELLO WORLD TEXT
+END HELLO WORLD TEXT
 */
 /* 
 START MY NAME, POSITION AND PHOTO
@@ -261,7 +275,6 @@ START NAV BAR
 }
 
 .nav-bar .nav-bar-element {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,8 +282,8 @@ START NAV BAR
   min-height: 95px;
   height: 8vh;
   color: white;
-  text-decoration: none;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 /* 
@@ -283,17 +296,20 @@ START ABOUT ME SECTION
 .about-me-section {
   height: 0px;
   color: white;
-  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  visibility: hidden;
 }
 
 .toggle-switch:has(> .switch-input:checked) ~ .about-me-section {
-  box-shadow: 0px 7px 3px -3px rgba(0, 0, 0, 0.9);
+  visibility: visible;
   margin-top: 10px;
   margin-left: -8px;
-  padding: 250px 0px;
+  padding: 150px 0px;
   height: auto;
   transition-delay: 0.8s;
-  transition-property: height, box-shadow, margin-top, margin-left,
+  transition-property: visibility, height, box-shadow, margin-top, margin-left,
     padding-bottom;
 }
 
@@ -302,8 +318,7 @@ START COFFEE CUP
 */
 
 .about-me-section .coffee-container {
-  position: relative;
-  display: inline-block;
+  display: none;
   overflow: hidden;
   width: 500px;
   height: 0px;
@@ -312,6 +327,7 @@ START COFFEE CUP
 .toggle-switch:has(> .switch-input:checked)
   ~ .about-me-section
   .coffee-container {
+  display: inline-block;
   height: 500px;
   padding-left: 150px;
   transition-delay: 0.8s;
@@ -531,19 +547,35 @@ STOP COFFEE CUP
 START PERSONAL DESCRIPTION
 */
 
+.about-me-section .about-me-text {
+  margin-top: 9.5rem;
+  font-size: 0rem;
+  color: rgb(29, 47, 63);
+  transform: rotate(-30deg);
+  height: 5rem;
+}
+
+.toggle-switch:has(> .switch-input:checked)
+  ~ .about-me-section
+  > .about-me-text {
+  font-size: 5rem;
+  margin-left: 2rem;
+  transition-delay: 0.8s;
+  transition-property: font-size;
+}
+
 .about-me-section .personal-description {
-  display: inline-block;
+  display: none;
   font-size: 0px;
-  width: 30vw;
+  width: 50vw;
   vertical-align: top;
-  left: 100px;
 }
 
 .toggle-switch:has(> .switch-input:checked)
   ~ .about-me-section
   > .personal-description {
+  display: inline-block;
   font-size: 25px;
-  margin: 0px 50px 0px;
   transition-delay: 0.8s;
   transition-property: font-size, margin;
 }
@@ -562,19 +594,19 @@ START SKILLS SECTION
   display: inline-block;
   height: 0px;
   color: white;
-  box-shadow: none;
   overflow: hidden;
+  visibility: hidden;
 }
 
 .toggle-switch:has(> .switch-input:checked) ~ .skills-section {
-  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.9);
+  visibility: visible;
   padding-left: 50px;
   padding-bottom: 50px;
   padding-top: 50px;
   height: auto;
   width: 99vw;
   transition-delay: 0.8s;
-  transition-property: height, box-shadow, margin-top, margin-left;
+  transition-property: visibility, height, box-shadow, margin-top, margin-left;
 }
 
 .skills-section .skill-switch-input {
@@ -924,7 +956,6 @@ START WORK EXPERIENCE SECTION
 }
 
 .toggle-switch:has(> .switch-input:checked) ~ .work-experience-section {
-  box-shadow: 0px 7px 3px -3px rgba(0, 0, 0, 0.9);
   margin-top: 10px;
   margin-left: -8px;
   padding-bottom: 50px;

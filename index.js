@@ -1,11 +1,3 @@
-$(window).scroll(function () {
-  var navBarHeight = getElementHeight(document.getElementById("nav-bar"));
-  if (isInViewport(document.getElementById("about-me"), navBarHeight)) {
-    document.getElementById("nav-bar").style.bottom = "none";
-    document.getElementById("nav-bar").style.top = "0";
-  }
-});
-
 function setArrowHeight() {
   var childLabels = document
     .getElementById("skills")
@@ -43,21 +35,41 @@ const getElementHeight = function (el) {
 window.addEventListener("resize", setArrowHeight);
 window.addEventListener("load", setArrowHeight);
 
-const isInViewport = function (el, navBarHeight) {
-  var elementTop = el.offsetTop - navBarHeight;
-  var elementBottom = elementTop + el.offsetHeight;
-
-  var viewportTop = $(window).scrollTop();
-  return elementBottom > viewportTop && elementTop < viewportTop;
-};
-
-function update(e) {
-  var x = e.clientX || e.touches[0].clientX;
-  var y = e.clientY || e.touches[0].clientY;
-
-  document.documentElement.style.setProperty("--cursorX", x + "px");
-  document.documentElement.style.setProperty("--cursorY", y + "px");
+function scrollIntoSection(sectionName) {
+  document.getElementById(sectionName).scrollIntoView();
 }
 
-document.addEventListener("mousemove", update);
-document.addEventListener("touchmove", update);
+window.onload = function () {
+    const $navBar = document.getElementById("nav-bar");
+    const $bigBall = document.getElementById('cursor-ball-big');
+    const $smallBall = document.getElementById('cursor-ball-small');
+
+    $(window).scroll(function () {
+        var navBarHeight = getElementHeight($navBar);
+        if (isInViewport(document.getElementById("about-me"), navBarHeight)) {
+          $navBar.style.bottom = "none";
+          $navBar.style.top = "0";
+        }
+      });
+
+    const isInViewport = function (el, navBarHeight) {
+        var elementTop = el.offsetTop - navBarHeight;
+        var elementBottom = elementTop + el.offsetHeight;
+        
+        var viewportTop = $(window).scrollTop();
+        return elementBottom > viewportTop && elementTop < viewportTop;
+    };
+
+    const onMouseMove = function (e) {    
+        TweenMax.to($bigBall, .3, {
+            x: e.clientX + 35,
+            y: e.clientY + 35
+          })
+          TweenMax.to($smallBall, .1, {
+            x: e.clientX + 45,
+            y: e.clientY + 45
+          })
+    }
+    
+    window.addEventListener("mousemove", onMouseMove);
+}
