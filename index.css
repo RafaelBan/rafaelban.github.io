@@ -1,155 +1,132 @@
 :root {
-    --light: #d8dbe0;
-    --dark: #151515;
-    scroll-behavior: smooth;
-    --cursorX: -10vw;
-    --cursorY: -10vh;
-  }
-  
-  body {
-    background-color: var(--dark);
-    margin: 0px;
-    font-family: "Comfortaa", sans-serif;
-    overflow-x: hidden;
-  }
+  --light: #d8dbe0;
+  --dark: #151515;
+  scroll-behavior: smooth;
+  --cursorX: -10vw;
+  --cursorY: -10vh;
+}
 
-  body:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    pointer-events: none;
-    background: radial-gradient(
-      circle 8vmax at var(--cursorX) var(--cursorY),
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0) 85%,
-      var(--light) 90%,
-      var(--dark) 100%
-    );
-    z-index: 100;
-  }
+body {
+  background-color: var(--dark);
+  margin: 0px;
+  font-family: "Comfortaa", sans-serif;
+  overflow-x: hidden;
+}
 
-  body:has(.toggle-switch > .switch-input:checked):before {
-    display: none;
-    background: none;
-    z-index: 0;
-  }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
 
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: var(--light);
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-  }
+::-webkit-scrollbar-thumb {
+  background: var(--light);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
 
 /* 
 START SWITCH
 */
 
-  .toggle-switch {
-    position: absolute;
-    z-index: 1;
-    margin-left: 160px;
-    margin-top: 100px;
-  }
+.toggle-switch {
+  position: absolute;
+  z-index: 1;
+  margin-left: 160px;
+  margin-top: 100px;
+}
 
-  .toggle-switch .switch-input {
-    position: absolute;
-    display: none;
-  }
+.toggle-switch .switch-input {
+  position: absolute;
+  display: none;
+}
 
-  .toggle-switch .switch-background {
-    position: absolute;
-    width: 125px;
-    height: 55px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+.toggle-switch .switch-background {
+  position: absolute;
+  width: 125px;
+  height: 55px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-  .toggle-switch .switch-background .outter-switch {
-    position: absolute;
-    width: 150px;
-    height: 80px;
-    margin-left: -12px;
-    margin-top: -12px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.9);
-    border-radius: 50px;
-    background-color: var(--light);
-    transition: 0.3s
-  }
+.toggle-switch .switch-background .outter-switch {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  margin-left: -12px;
+  margin-top: -12px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+  border-radius: 50px;
+  background-color: var(--light);
+  transition: 0.3s;
+}
 
-  .toggle-switch .switch-input:checked ~ .switch-background .outter-switch {
-    background-color: var(--dark);
-  }
+.toggle-switch .switch-input:checked ~ .switch-background .outter-switch {
+  background-color: var(--dark);
+}
 
-  .toggle-switch .switch-background .slider {
-    position: absolute;
-    width: 125px;
-    height: 55px;
-    border-radius: 50px;
-    background-color: #383838;
-    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
-    transition: 0.3s;
-  }
+.toggle-switch .switch-background .slider {
+  position: absolute;
+  width: 125px;
+  height: 55px;
+  border-radius: 50px;
+  background-color: #383838;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
 
-  .toggle-switch .switch-input:checked ~ .switch-background .slider {
-    background-color: var(--light);
-  }
+.toggle-switch .switch-input:checked ~ .switch-background .slider {
+  background-color: var(--light);
+}
 
-  .toggle-switch .switch-background .slider::before {
-    content: "";
-    position: absolute;
-    left: 71px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    box-shadow: inset 3px 0px 10px -2px rgba(255, 255, 255, 0.9);
-    background-color: black;
-    transition: 0.3s;
-  }
+.toggle-switch .switch-background .slider::before {
+  content: "";
+  position: absolute;
+  left: 71px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: inset 3px 0px 10px -2px rgba(255, 255, 255, 0.9);
+  background-color: black;
+  transition: 0.3s;
+}
 
-  .toggle-switch .switch-input:checked ~ .switch-background .slider::before {
-    transform: translateX(-70px);
-    background-color: var(--light);
-    box-shadow: inset -3px 0px 10px rgba(0,0,0,0.9);
-  }
+.toggle-switch .switch-input:checked ~ .switch-background .slider::before {
+  transform: translateX(-70px);
+  background-color: var(--light);
+  box-shadow: inset -3px 0px 10px rgba(0, 0, 0, 0.9);
+}
 
-  .toggle-switch .switch-background .portofolio-text {
-    color: var(--light);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 29px;
-    left: 35px;
-    font-size: 9px;
-    transition: visibility 0s, opacity 1s linear;
-  }
+.toggle-switch .switch-background .portofolio-text {
+  color: var(--light);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 29px;
+  left: 35px;
+  font-size: 9px;
+  transition: visibility 0s, opacity 1s linear;
+}
 
-  .toggle-switch .switch-input:checked ~ .switch-background .portofolio-text {
-    opacity: 0;
-  }
+.toggle-switch .switch-input:checked ~ .switch-background .portofolio-text {
+  opacity: 0;
+}
 
-  .toggle-switch .switch-background .hello-text {
-    color: var(--dark);
-    position: absolute;
-    opacity: 0;
-    transform: translate(-50%,-50%);
-    top: 29px;
-    left: 87px;
-    font-size: 20px;
-    transition: visibility 0s, opacity 1s linear;
-  }
+.toggle-switch .switch-background .hello-text {
+  color: var(--dark);
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  top: 29px;
+  left: 87px;
+  font-size: 20px;
+  transition: visibility 0s, opacity 1s linear;
+}
 
-  .toggle-switch .switch-input:checked ~ .switch-background .hello-text {
-    opacity: 1;
-  }
+.toggle-switch .switch-input:checked ~ .switch-background .hello-text {
+  opacity: 1;
+}
 
 /* 
 END SWITCH
@@ -158,53 +135,41 @@ END SWITCH
 START HEX / NON HEX HELLO WORLD TEXT
 */
 
-  .header-container {
-    position: relative;
-    display: flex;
-    height: 800px;
-    transition-delay: 0.5s;
-  }
+.header-container {
+  position: relative;
+  display: flex;
+  height: 800px;
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+  background: linear-gradient(180deg, rgba(20,32,43,1) 65%, rgba(21,21,21,1) 100%);
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .header-container {
-    min-height: 800px;
-    height: 100vh;
-    transition-delay: 0s;
-  }
+.toggle-switch:has(> .switch-input:checked) ~ .header-container {
+  opacity: 1;
+  min-height: 800px;
+  height: 80vh;
+  transition: 0.5s;
+  transition-delay: 0s;
+}
 
-  .header-container .hex-hello-world-text {
-    position: absolute;
-    margin-top: 220px;
-    margin-left: 100px;
-    color: white;
-    opacity: 1;
-    transition: visibility 0s, opacity 1s linear;
-    transition-delay: 0.5s;
-  }
+.header-container .hello-world-text {
+  position: absolute;
+  color: white;
+  margin-top: 220px;
+  margin-left: 100px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 1s;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .header-container .hex-hello-world-text {
-    opacity: 0;
-    transition: 1s;
-  }
-
-  .toggle-switch:has(> .switch-input:checked) ~ .header-container .hex-hello-world-text {
-    visibility: hidden;
-  }
-
-  .header-container .hello-world-text {
-    position: absolute;
-    color: white;
-    margin-top: 220px;
-    margin-left: 100px;
-    visibility: hidden;
-    opacity: 0;
-    transition: 1s;
-  }
-
-  .toggle-switch:has(> .switch-input:checked) ~ .header-container .hello-world-text {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0.5s;
-  }
+.toggle-switch:has(> .switch-input:checked)
+  ~ .header-container
+  .hello-world-text {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.5s;
+}
 
 /* 
 END HEX / NON HEX HELLO WORLD TEXT
@@ -212,54 +177,56 @@ END HEX / NON HEX HELLO WORLD TEXT
 /* 
 START MY NAME, POSITION AND PHOTO
 */
-  .header-container .my-name-text {
-    width: 500px;
-    margin-top: 250px;
-    margin-left: 40px;
-    color: white;
-    font-size: 120px;
-    visibility: hidden;
-    transform: translateX(-550px);
-    transition: 0.3s;
-  }
+.header-container .my-name-text {
+  width: 500px;
+  margin-top: 250px;
+  margin-left: 40px;
+  color: white;
+  font-size: 120px;
+  visibility: hidden;
+  transform: translateX(-550px);
+  transition: 0.3s;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .header-container .my-name-text {
-    visibility: visible;
-    transform: translateX(0px);
-    transition-delay: 0.5s;
-  }
+.toggle-switch:has(> .switch-input:checked) ~ .header-container .my-name-text {
+  visibility: visible;
+  transform: translateX(0px);
+  transition-delay: 0.5s;
+}
 
-  .header-container .current-position {
-    width: 30px;
-    color: white;
-    font-size: 30px;
-    margin-left: 30px;
-    margin-top: -400px;
-    visibility: hidden;
-    transform: translateY(-550px);
-    transition: 0.3s;
-  }
+.header-container .current-position {
+  width: 30px;
+  color: white;
+  font-size: 30px;
+  margin-left: 30px;
+  margin-top: -400px;
+  visibility: hidden;
+  transform: translateY(-550px);
+  transition: 0.3s;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .header-container .current-position {
-    visibility: visible;
-    transform: translateY(475px);
-    transition-delay: 0.5s;
-  }
+.toggle-switch:has(> .switch-input:checked)
+  ~ .header-container
+  .current-position {
+  visibility: visible;
+  transform: translateY(475px);
+  transition-delay: 0.5s;
+}
 
-  .header-container .me-photo {
-    margin-top: -900px;
-    margin-left: auto;
-    margin-right: 50px;
-    visibility: hidden;
-    transform: translateY(0px);
-    transition: 0.3s;
-  }
+.header-container .me-photo {
+  margin-top: -900px;
+  margin-left: auto;
+  margin-right: 50px;
+  visibility: hidden;
+  transform: translateY(0px);
+  transition: 0.3s;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .header-container .me-photo {
-    visibility: visible;
-    transform: translateY(925px);
-    transition-delay: 0.5s;
-  }
+.toggle-switch:has(> .switch-input:checked) ~ .header-container .me-photo {
+  visibility: visible;
+  transform: translateY(925px);
+  transition-delay: 0.5s;
+}
 
 /* 
 STOP MY NAME, POSITION AND PHOTO
@@ -268,41 +235,43 @@ STOP MY NAME, POSITION AND PHOTO
 START NAV BAR
 */
 
-  .nav-bar {
-    position: sticky;
-    display: flex;
-    z-index: 10;
-    width: 100vw;
-    column-gap: 0px;
-    min-height: 0px;
-    height: 0px;
-    bottom: 0;
-    margin-left: -1900px;
-    visibility: hidden;
-    background-color: var(--light);
-    transition: 0.3s;
-  }
+.nav-bar {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  width: 100vw;
+  column-gap: 40px;
+  min-height: 0px;
+  height: 0px;
+  bottom: 0;
+  margin-left: -1900px;
+  visibility: hidden;
+  transition: 0.3s;
+  backdrop-filter: blur(50px);
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .nav-bar {
-    visibility: visible;
-    min-height: 95px;
-    height: 12vh;
-    transform: translateX(1890px);
-    transition-delay: 0.5s;
-    transition-property: transform, height;
-  }
+.toggle-switch:has(> .switch-input:checked) ~ .nav-bar {
+  visibility: visible;
+  min-height: 95px;
+  height: 8vh;
+  transform: translateX(1890px);
+  transition-delay: 0.5s;
+  transition-property: transform, height;
+}
 
-  .nav-bar .nav-bar-element {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    width: 20vw;
-    min-height: 95px;
-    height: 12vh;
-    text-decoration: none;
-    box-shadow: inset 0px 7px 3px -3px rgba(0,0,0,0.9);
-  }
+.nav-bar .nav-bar-element {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  min-height: 95px;
+  height: 8vh;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+}
 
 /* 
 STOP NAV BAR
@@ -311,228 +280,246 @@ STOP NAV BAR
 START ABOUT ME SECTION
 */
 
-  .about-me-section {
-    height: 0px;
-    color: white;
-    box-shadow: none;
-  }
+.about-me-section {
+  height: 0px;
+  color: white;
+  box-shadow: none;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .about-me-section{
-    box-shadow: 0px 7px 3px -3px rgba(0,0,0,0.9);
-    margin-top: 10px;
-    margin-left: -8px;
-    padding: 250px 0px;
-    height: auto;
-    transition-delay: 0.8s;
-    transition-property: height, box-shadow, margin-top, margin-left, padding-bottom;
-  }
+.toggle-switch:has(> .switch-input:checked) ~ .about-me-section {
+  box-shadow: 0px 7px 3px -3px rgba(0, 0, 0, 0.9);
+  margin-top: 10px;
+  margin-left: -8px;
+  padding: 250px 0px;
+  height: auto;
+  transition-delay: 0.8s;
+  transition-property: height, box-shadow, margin-top, margin-left,
+    padding-bottom;
+}
 
 /* 
 START COFFEE CUP
 */
 
 .about-me-section .coffee-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    width: 500px;
-    height: 0px;
-  }
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 500px;
+  height: 0px;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .about-me-section .coffee-container {
-    height: 500px;
-    padding-left: 150px;
-    transition-delay: 0.8s;
-    transition-property: height;
-  }
-  
-  .about-me-section .coffee-container .cup {
-    position: absolute;
-    height: 550px;
-    width: 500px;
-    overflow: hidden;
-    z-index: 9;
-    transition: 0.5s;
-    transition-property: padding-left;
-  }
+.toggle-switch:has(> .switch-input:checked)
+  ~ .about-me-section
+  .coffee-container {
+  height: 500px;
+  padding-left: 150px;
+  transition-delay: 0.8s;
+  transition-property: height;
+}
 
-  .about-me-section .coffee-container .cup .cup-body {
-    position: absolute;
-    overflow: hidden;
-    max-height: 350px;
-    height: 350px;
-    width: 300px;
-    background-image: linear-gradient(to right, #b9b9b9 , #FFFFFF);
-    margin-left: 100px;
-    margin-top: 75px;
-    border-bottom-left-radius: 100%50%;
-    border-bottom-right-radius: 100%50%;
-    z-index: 1;
-    transform: perspective(10px) rotateX(0deg);
-    transition: transform 0s, max-height 0.4s, margin-top 0.4s;
-    transition-property: transform max-height margin-top;
-  }
+.about-me-section .coffee-container .cup {
+  position: absolute;
+  height: 550px;
+  width: 500px;
+  overflow: hidden;
+  z-index: 9;
+  transition: 0.5s;
+  transition-property: padding-left;
+}
 
-  .about-me-section .coffee-container .cup .cup-margin-shape {
-    position: absolute;
-    max-height: 150px;
-    max-width: 300px;
-    height: 150px;
-    width: 300px;
-    background-image: linear-gradient(to right, #b9b9b9 , #FFFFFF);
-    margin-top:0px;
-    margin-left: 100px;
-    border-radius: 50%;
-    z-index:5;
-    transition: 0.3s;
-    transition-property: height max-height max-width width margin-top margin-left;
-  }
+.about-me-section .coffee-container .cup .cup-body {
+  position: absolute;
+  overflow: hidden;
+  max-height: 350px;
+  height: 350px;
+  width: 300px;
+  background-image: linear-gradient(to right, #b9b9b9, #ffffff);
+  margin-left: 100px;
+  margin-top: 75px;
+  border-bottom-left-radius: 100%50%;
+  border-bottom-right-radius: 100%50%;
+  z-index: 1;
+  transform: perspective(10px) rotateX(0deg);
+  transition: transform 0s, max-height 0.4s, margin-top 0.4s;
+  transition-property: transform max-height margin-top;
+}
 
-  .about-me-section .coffee-container .cup .cup-black-shape {
-    position: absolute;
-    overflow: hidden;
-    max-height: 130px;
-    max-width: 280px;
-    height: 130px;
-    width: 280px;
-    background-image: linear-gradient(to left, #151515 70%, #353535);
-    margin-top: 10px;
-    margin-left: 110px;
-    border-radius: 50%;
-    z-index: 5;
-    transition: 0.3s;
-    transition-property: height max-height max-width width margin-left;
-  }
+.about-me-section .coffee-container .cup .cup-margin-shape {
+  position: absolute;
+  max-height: 150px;
+  max-width: 300px;
+  height: 150px;
+  width: 300px;
+  background-image: linear-gradient(to right, #b9b9b9, #ffffff);
+  margin-top: 0px;
+  margin-left: 100px;
+  border-radius: 50%;
+  z-index: 5;
+  transition: 0.3s;
+  transition-property: height max-height max-width width margin-top margin-left;
+}
 
-  .about-me-section .coffee-container .cup .cup-black-shape .coffee {
-    position: absolute;
-    max-height: 130px;
-    max-width: 280px;
-    height: 130px;
-    width: 280px;
-    background-image: radial-gradient(#ca9970, #866247);
-    margin-top: 35px;
-    margin-left: 0;
-    border-radius: 50%;
-    z-index: 6;
-    transition: 0.3s;
-    transition-property: height max-height max-width width margin-top margin-left;
-  }
+.about-me-section .coffee-container .cup .cup-black-shape {
+  position: absolute;
+  overflow: hidden;
+  max-height: 130px;
+  max-width: 280px;
+  height: 130px;
+  width: 280px;
+  background-image: linear-gradient(to left, #151515 70%, #353535);
+  margin-top: 10px;
+  margin-left: 110px;
+  border-radius: 50%;
+  z-index: 5;
+  transition: 0.3s;
+  transition-property: height max-height max-width width margin-left;
+}
 
-  .about-me-section .coffee-container .cup .cup-black-shape .coffee .coffee-text {
-    font-size: 110px;
-    color: #e4cbb6;
-    padding-left: 15px;
-    padding-top: 0px;
-    margin-left: 0px;
-    transform: perspective(400px) rotateX(50deg) rotateZ(-1deg);
-    transition: 0.3s;
-    transition-property: margin-left transform;
-  }
+.about-me-section .coffee-container .cup .cup-black-shape .coffee {
+  position: absolute;
+  max-height: 130px;
+  max-width: 280px;
+  height: 130px;
+  width: 280px;
+  background-image: radial-gradient(#ca9970, #866247);
+  margin-top: 35px;
+  margin-left: 0;
+  border-radius: 50%;
+  z-index: 6;
+  transition: 0.3s;
+  transition-property: height max-height max-width width margin-top margin-left;
+}
 
-  .about-me-section .coffee-container .cup .cup-black-shape .coffee .joke-text {
-    font-size: 0;
-    color: #e4cbb6;
-    opacity: 0;
-    text-align: center;
-    transition: 0s;
-    transition-property: opacity;
-  }
+.about-me-section .coffee-container .cup .cup-black-shape .coffee .coffee-text {
+  font-size: 110px;
+  color: #e4cbb6;
+  padding-left: 15px;
+  padding-top: 0px;
+  margin-left: 0px;
+  transform: perspective(400px) rotateX(50deg) rotateZ(-1deg);
+  transition: 0.3s;
+  transition-property: margin-left transform;
+}
 
-  .about-me-section .coffee-container .cup-handle {
-    position: absolute;
-    max-width: 80px;
-    height: 150px;
-    width: 80px;
-    border-radius: 150px;
-    border-right: 25px solid #b9b9b9;
-    border-bottom: 25px solid #b9b9b9;
-    border-top: 25px solid #b9b9b9;
-    border-left: 25px solid #b9b9b9;
-    margin-top: 125px;
-    margin-left: 15px;
-    z-index: 0;
-    transition: margin-left 0.3s, transform 0.3s, border-left 0.2s, border-top 0.3s, border-right 0.3s, border-bottom 0.3s, margin-top 0.3s;
-    transform: perspective(400px) rotateX(0deg) rotateZ(1deg);
-    transition-property: margin-left transform border-left border-top border-right border-bottom margin-top;
-  }
+.about-me-section .coffee-container .cup .cup-black-shape .coffee .joke-text {
+  font-size: 0;
+  color: #e4cbb6;
+  opacity: 0;
+  text-align: center;
+  transition: 0s;
+  transition-property: opacity;
+}
+
+.about-me-section .coffee-container .cup-handle {
+  position: absolute;
+  max-width: 80px;
+  height: 150px;
+  width: 80px;
+  border-radius: 150px;
+  border-right: 25px solid #b9b9b9;
+  border-bottom: 25px solid #b9b9b9;
+  border-top: 25px solid #b9b9b9;
+  border-left: 25px solid #b9b9b9;
+  margin-top: 125px;
+  margin-left: 15px;
+  z-index: 0;
+  transition: margin-left 0.3s, transform 0.3s, border-left 0.2s,
+    border-top 0.3s, border-right 0.3s, border-bottom 0.3s, margin-top 0.3s;
+  transform: perspective(400px) rotateX(0deg) rotateZ(1deg);
+  transition-property: margin-left transform border-left border-top border-right
+    border-bottom margin-top;
+}
 
 /* 
 START COFFEE CUP ANIMATION
 */
 
-  .about-me-section .coffee-container .cup:hover .cup-body {
-    max-height: 0px;
-    margin-top: 260px;
-    transform: perspective(10px) rotateX(-6deg);
-    transition: transform 1s, max-height 0.5s, margin-top 0.5s;
-    transition-property: transform max-height margin-top;
-    transition-delay: 0.03s;
-  }
+.about-me-section .coffee-container .cup:hover .cup-body {
+  max-height: 0px;
+  margin-top: 260px;
+  transform: perspective(10px) rotateX(-6deg);
+  transition: transform 1s, max-height 0.5s, margin-top 0.5s;
+  transition-property: transform max-height margin-top;
+  transition-delay: 0.03s;
+}
 
-  .about-me-section .coffee-container .cup:hover ~ .cup-handle {
-    transform: perspective(400px) rotateX(-85deg) rotateZ(-30deg);
-    border-right: 60px solid #b9b9b9;
-    border-bottom: 60px solid #b9b9b9;
-    border-top: 60px solid #b9b9b9;
-    border-left: 200px solid #b9b9b9;
-    margin-left: -110px;
-    margin-top: 90px;
-    transition: margin-left 0.4s, transform 0.5s, border-top 0.5s, border-bottom 0.5s, border-left 0.4s, border-right 0.5s, margin-top 0.5s;
-    transition-property: margin-left transform border-top border-bottom border-left border-right margin-top;
-    transition-delay: 0.1s, 0s, 0s, 0s, 0.1s, 0s, 0s;
-  }
+.about-me-section .coffee-container .cup:hover ~ .cup-handle {
+  transform: perspective(400px) rotateX(-85deg) rotateZ(-30deg);
+  border-right: 60px solid #b9b9b9;
+  border-bottom: 60px solid #b9b9b9;
+  border-top: 60px solid #b9b9b9;
+  border-left: 200px solid #b9b9b9;
+  margin-left: -110px;
+  margin-top: 90px;
+  transition: margin-left 0.4s, transform 0.5s, border-top 0.5s,
+    border-bottom 0.5s, border-left 0.4s, border-right 0.5s, margin-top 0.5s;
+  transition-property: margin-left transform border-top border-bottom
+    border-left border-right margin-top;
+  transition-delay: 0.1s, 0s, 0s, 0s, 0.1s, 0s, 0s;
+}
 
-  .about-me-section .coffee-container .cup:hover .cup-margin-shape {
-    max-height: 450px;
-    margin-left: 20px;
-    height: 450px;
-    max-width: 450px;
-    width: 450px;
-    transition: 0.5s;
-    transition-property: max-height height max-width width margin-left;
-  }
+.about-me-section .coffee-container .cup:hover .cup-margin-shape {
+  max-height: 450px;
+  margin-left: 20px;
+  height: 450px;
+  max-width: 450px;
+  width: 450px;
+  transition: 0.5s;
+  transition-property: max-height height max-width width margin-left;
+}
 
-  .about-me-section .coffee-container .cup:hover .cup-black-shape {
-    max-height: 430px;
-    margin-left: 30px;
-    height: 430px;
-    max-width: 430px;
-    width: 430px;
-    transition: 0.5s;
-    transition-property: max-height height max-width width margin-left;
-  }
+.about-me-section .coffee-container .cup:hover .cup-black-shape {
+  max-height: 430px;
+  margin-left: 30px;
+  height: 430px;
+  max-width: 430px;
+  width: 430px;
+  transition: 0.5s;
+  transition-property: max-height height max-width width margin-left;
+}
 
-  .about-me-section .coffee-container .cup:hover .cup-black-shape .coffee {
-    max-height: 430px;
-    margin-left: 0px;
-    margin-top: 0px;
-    height: 430px;
-    max-width: 430px;
-    width: 430px;
-    transition: 0.5s;
-    transition-property: max-height height max-width width margin-left margin-top;
-  }
+.about-me-section .coffee-container .cup:hover .cup-black-shape .coffee {
+  max-height: 430px;
+  margin-left: 0px;
+  margin-top: 0px;
+  height: 430px;
+  max-width: 430px;
+  width: 430px;
+  transition: 0.5s;
+  transition-property: max-height height max-width width margin-left margin-top;
+}
 
-  .about-me-section .coffee-container .cup:hover .cup-black-shape .coffee .coffee-text {
-    font-size: 170px;
-    margin-left: 10px;
-    margin-top: 130px;
-    transform: perspective(400px) rotateX(0deg);
-    opacity: 0;
-    transition: margin-left 0.5s, margin-top 0.5s, transform 0.5s, opacity 0.5s linear 0.5s, font-size 0.5s;
-    transition-property: margin-left margin-top transform opacity font-size;
-  }
+.about-me-section
+  .coffee-container
+  .cup:hover
+  .cup-black-shape
+  .coffee
+  .coffee-text {
+  font-size: 170px;
+  margin-left: 10px;
+  margin-top: 130px;
+  transform: perspective(400px) rotateX(0deg);
+  opacity: 0;
+  transition: margin-left 0.5s, margin-top 0.5s, transform 0.5s,
+    opacity 0.5s linear 0.5s, font-size 0.5s;
+  transition-property: margin-left margin-top transform opacity font-size;
+}
 
-  .about-me-section .coffee-container .cup:hover .cup-black-shape .coffee .joke-text {
-    margin-left: 0px;
-    margin-top: -140px;
-    opacity: 1;
-    font-size: 18px;
-    transition: margin-left 0s, margin-top 0s, opacity 0.5s linear 0.5s;
-    transition-property: margin-left margin-top font-size opacity;
-    transition-delay: 1s;
-  }
+.about-me-section
+  .coffee-container
+  .cup:hover
+  .cup-black-shape
+  .coffee
+  .joke-text {
+  margin-left: 0px;
+  margin-top: -140px;
+  opacity: 1;
+  font-size: 18px;
+  transition: margin-left 0s, margin-top 0s, opacity 0.5s linear 0.5s;
+  transition-property: margin-left margin-top font-size opacity;
+  transition-delay: 1s;
+}
 
 /* 
 STOP COFFEE CUP ANIMATION
@@ -544,20 +531,22 @@ STOP COFFEE CUP
 START PERSONAL DESCRIPTION
 */
 
-  .about-me-section .personal-description {
-    display: inline-block;
-    font-size: 0px;
-    width: 30vw;
-    vertical-align: top;
-    left: 100px;
-  }
+.about-me-section .personal-description {
+  display: inline-block;
+  font-size: 0px;
+  width: 30vw;
+  vertical-align: top;
+  left: 100px;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .about-me-section > .personal-description{
-    font-size: 25px;
-    margin: 0px 50px 0px;
-    transition-delay: 0.8s;
-    transition-property: font-size, margin;
-  }
+.toggle-switch:has(> .switch-input:checked)
+  ~ .about-me-section
+  > .personal-description {
+  font-size: 25px;
+  margin: 0px 50px 0px;
+  transition-delay: 0.8s;
+  transition-property: font-size, margin;
+}
 
 /*
 END PERSONAL DESCRIPTION
@@ -568,286 +557,358 @@ STOP ABOUT ME SECTION
 /* 
 START SKILLS SECTION
 */
-  .skills-section {
-    position: relative;
-    display: inline-block;
-    height: 0px;
-    color: white;
-    box-shadow: none;
-    overflow: hidden;
-  }
+.skills-section {
+  position: relative;
+  display: inline-block;
+  height: 0px;
+  color: white;
+  box-shadow: none;
+  overflow: hidden;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .skills-section {
-    box-shadow: inset 0px 7px 3px -3px rgba(0,0,0,0.9);
-    padding-left: 50px;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    height: auto;
-    width: 99vw;
-    transition-delay: 0.8s;
-    transition-property: height, box-shadow, margin-top, margin-left;
-  }
+.toggle-switch:has(> .switch-input:checked) ~ .skills-section {
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.9);
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  height: auto;
+  width: 99vw;
+  transition-delay: 0.8s;
+  transition-property: height, box-shadow, margin-top, margin-left;
+}
 
-  .skills-section .skill-switch-input {
-    position: absolute;
-    display: none;
-  }
+.skills-section .skill-switch-input {
+  position: absolute;
+  display: none;
+}
 
-  .skills-section .skill-section-label {
-    display: block;
-    background-color: var(--dark);
-    box-shadow: inset 0px 0px 0px 5px var(--light);
-    min-height: 300px;
-    width: 100px;
-    overflow: hidden;
-    visibility: hidden;
-    padding: 10px 50px 10px 300px;
-    margin-top: 50px;
-    border-radius: 100px;
-    transition: width 0.5s, background-color 0.5s, margin-left 0.5s, visibility 0s, padding 0s, margin-top 0s;
-    transition-delay: width 0s, background-color 0s, margin-left 0s, visibility 0.8s, padding 0.8s, margin-top 0.8s;
-  }
+.skills-section .skill-section-label {
+  display: block;
+  background-color: var(--dark);
+  box-shadow: inset 0px 0px 0px 5px var(--light);
+  min-height: 300px;
+  width: 100px;
+  overflow: hidden;
+  visibility: hidden;
+  padding: 10px 50px 10px 300px;
+  margin-top: 50px;
+  border-radius: 100px;
+  transition: width 0.5s, background-color 0.5s, margin-left 0.5s, visibility 0s,
+    padding 0s, margin-top 0s;
+  transition-delay: width 0s, background-color 0s, margin-left 0s,
+    visibility 0.8s, padding 0.8s, margin-top 0.8s;
+}
 
-  .toggle-switch:has(> .switch-input:checked) ~ .skills-section .skill-section-label {
-    visibility: visible;
-    padding: 10px 50px 10px 300px;
-    margin-top: 50px;
-  }
+.toggle-switch:has(> .switch-input:checked)
+  ~ .skills-section
+  .skill-section-label {
+  visibility: visible;
+  padding: 10px 50px 10px 300px;
+  margin-top: 50px;
+}
 
-  .skills-section .skill-section-label:hover {
-    cursor: pointer;
-    background-color: var(--light);
-  }
+.skills-section .skill-section-label:hover {
+  cursor: pointer;
+  background-color: var(--light);
+}
 
-  .skills-section .skill-switch-input:checked + .skill-section-label {
-    width: calc(100vw - 500px);
-  }
+.skills-section .skill-switch-input:checked + .skill-section-label {
+  width: calc(100vw - 500px);
+}
 
-  .skills-section #right-skill-section-label {
-    border-width: 0px;
-    transform: translateZ(1px) rotate(180deg);
-    margin-left: calc(100vw - 600px);
-  }
+.skills-section #right-skill-section-label {
+  border-width: 0px;
+  transform: translateZ(1px) rotate(180deg);
+  margin-left: calc(100vw - 600px);
+}
 
-  .skills-section .skill-switch-input:checked + #right-skill-section-label {
-    margin-left: 0;
-  }
+.skills-section .skill-switch-input:checked + #right-skill-section-label {
+  margin-left: 0;
+}
 
-  .skills-section .skill-section-label .skill-section-container {
-    position: relative;
-    width: calc(100vw - 600px);
-  }
+.skills-section .skill-section-label .skill-section-container {
+  position: relative;
+  width: calc(100vw - 600px);
+}
 
-  .skills-section .skill-section-label #right-skill-section-container {
-    transform: rotate(-180deg);
-  }
+.skills-section .skill-section-label #right-skill-section-container {
+  transform: rotate(-180deg);
+}
 
-  .skills-section .skill-section-label .skill-section-container-text {
-    position: absolute;
-    height: 100px;
-    width: 220px;
-    text-align: center;
-    padding-top: var(--skill-padding);
-    margin-left: -230px;
-    font-size: 30px;
-    color: var(--light);
-    z-index: 1;
-    pointer-events: none;
-    transition: 0.5s;
-    transition-property: color;
-  }
+.skills-section .skill-section-label .skill-section-container-text {
+  position: absolute;
+  height: 100px;
+  width: 220px;
+  text-align: center;
+  padding-top: var(--skill-padding);
+  margin-left: -230px;
+  font-size: 30px;
+  color: var(--light);
+  z-index: 1;
+  pointer-events: none;
+  transition: 0.5s;
+  transition-property: color;
+}
 
-  .skills-section .skill-section-label:hover .skill-section-container-text {
-    color: var(--dark);
-    transition: 0.5s;
-    transition-property: color;
-  }
+.skills-section .skill-section-label:hover .skill-section-container-text {
+  color: var(--dark);
+  transition: 0.5s;
+  transition-property: color;
+}
 
-  .skills-section .skill-section-label #right-skill-section-container-text {
-    transform: rotate(-180deg);
-    padding-top: 0;
-    padding-bottom: var(--skill-padding);
-  }
+.skills-section .skill-section-label #right-skill-section-container-text {
+  transform: rotate(-180deg);
+  padding-top: 0;
+  padding-bottom: var(--skill-padding);
+}
 
-  .skills-section .skill-section-label .skill-section-arrow {
-    position: absolute;
-    border-radius: 0 100px 100px 0;
-    width: 100px;
-    margin-top: -10px;
-    margin-left: 55px;
-    margin-bottom: 10px;
-    background-color: var(--light);
-    z-index: 1;
-    transition: margin-left 0.5s;
-  }
+.skills-section .skill-section-label .skill-section-arrow {
+  position: absolute;
+  border-radius: 0 100px 100px 0;
+  width: 100px;
+  margin-top: -10px;
+  margin-left: 55px;
+  margin-bottom: 10px;
+  background-color: var(--light);
+  z-index: 1;
+  transition: margin-left 0.5s;
+}
 
-  .skills-section .skill-switch-input:checked + .skill-section-label .skill-section-arrow {
-    margin-left: calc(100vw - 550px);
-  }
+.skills-section
+  .skill-switch-input:checked
+  + .skill-section-label
+  .skill-section-arrow {
+  margin-left: calc(100vw - 550px);
+}
 
-  .skills-section .skill-section-label .skill-section-arrow .skill-arrow-design {
-    border: solid var(--dark);
-    border-width: 0 15px 15px 0;
-    display: inline-block;
-    padding: 15px;
-    margin-top: 130px;
-    margin-left: 15px;
-    transform: rotate(-45deg);
-    transition: margin-left 0.5s, transform 0.5s;
-  }
+.skills-section .skill-section-label .skill-section-arrow .skill-arrow-design {
+  border: solid var(--dark);
+  border-width: 0 15px 15px 0;
+  display: inline-block;
+  padding: 15px;
+  margin-top: 130px;
+  margin-left: 15px;
+  transform: rotate(-45deg);
+  transition: margin-left 0.5s, transform 0.5s;
+}
 
-  .skills-section .skill-switch-input:checked + .skill-section-label .skill-section-arrow .skill-arrow-design {
-    transform: rotate(135deg);
-    margin-left: 35px;
-  }
+.skills-section
+  .skill-switch-input:checked
+  + .skill-section-label
+  .skill-section-arrow
+  .skill-arrow-design {
+  transform: rotate(135deg);
+  margin-left: 35px;
+}
 
-  .skills-section .skill-section-label .skill-section-container .skill-section-skills {
-    overflow: hidden;
-    display: inline-block;
-    padding-top: 15px;
-    width: calc(100vw - 500px);
-    height: auto;
-  }
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-section-skills {
+  overflow: hidden;
+  display: inline-block;
+  padding-top: 15px;
+  width: calc(100vw - 500px);
+  height: auto;
+}
 
-  .skills-section .skill-section-label .skill-section-container .skill-container {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 330px;
-    height: 250px;
-    font-size: 0px;
-    transition: 0.3s;
-    transition-property: width, font-size;
-    transition-delay: 0s, 0s;
-  }
+.skills-section .skill-section-label .skill-section-container .skill-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 330px;
+  height: 250px;
+  font-size: 0px;
+  transition: 0.3s;
+  transition-property: width, font-size;
+  transition-delay: 0s, 0s;
+}
 
-  .skills-section .skill-section-label .skill-section-container .skill-container #circle {
-    position: absolute;
-    height: 200px;
-    width: 200px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(-60deg) rotateY(180deg);
-  }
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  #circle {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-60deg) rotateY(180deg);
+}
 
-  .skills-section .skill-section-label .skill-section-container .skill-container #circle #skill-circle-bar {
-    fill: transparent;
-    stroke: var(--light);
-    stroke-width: 0;
-    stroke-dasharray: 500;
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  #circle
+  #skill-circle-bar {
+  fill: transparent;
+  stroke: var(--light);
+  stroke-width: 0;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  stroke-linecap: round;
+  animation: reverse-stroke 0.3s ease-in-out;
+  transition: stroke-width 0.1s, stroke 0.5s;
+  transition-delay: 0.3s, 0s;
+}
+
+.skills-section
+  .skill-section-label:hover
+  .skill-section-container
+  .skill-container
+  #circle
+  #skill-circle-bar {
+  stroke: var(--dark);
+}
+
+.skills-section
+  .skill-switch-input:checked
+  + .skill-section-label
+  .skill-section-container
+  .skill-container
+  #circle
+  #skill-circle-bar {
+  stroke-width: 20;
+  transition-delay: 0.5s, 0s;
+  animation: stroke 0.6s ease-in-out 0.5s forwards;
+}
+
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  #circle
+  #full-circle-bar {
+  fill: transparent;
+  stroke: rgba(0, 0, 0, 0.9);
+  stroke-width: 20;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 165;
+  stroke-linecap: round;
+  transition: 0.5s;
+  transition-property: stroke;
+}
+
+.skills-section
+  .skill-section-label:hover
+  .skill-section-container
+  .skill-container
+  #circle
+  #full-circle-bar {
+  stroke: rgba(0, 0, 0, 0.2);
+}
+
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  .skill-circle-text {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: 50%;
+  top: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  fill: rgba(0, 0, 0, 0.9);
+}
+
+.skills-section
+  .skill-section-label:hover
+  .skill-section-container
+  .skill-container
+  .skill-circle-text {
+  fill: var(--dark);
+}
+
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  #advanced-skill-level {
+  margin-left: -25px;
+  margin-top: 14px;
+  transform: translate(-50%, -50%) rotate(80deg);
+}
+
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  #basic-skill-level {
+  margin-left: 4px;
+  margin-top: 25px;
+  transform: translate(-50%, -50%) rotate(170deg);
+}
+
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  #newbie-skill-level {
+  margin-left: -25px;
+  margin-top: -5px;
+  transform: translate(-50%, -50%) rotate(280deg);
+}
+
+.skills-section
+  .skill-section-label
+  .skill-section-container
+  .skill-container
+  .skill-text {
+  position: absolute;
+  font-size: 14px;
+  color: var(--light);
+  transition: 0.5s;
+  transition-property: color;
+}
+
+.skills-section
+  .skill-section-label:hover
+  .skill-section-container
+  .skill-container
+  .skill-text {
+  color: var(--dark);
+  transition: 0.5s;
+  transition-property: color;
+}
+
+.skills-section .skill-section-label .skill-hover-info {
+  position: absolute;
+  font-size: 12px;
+  top: 0;
+  right: -45px;
+  width: 75px;
+}
+
+.skills-section .skill-section-label #current-skill {
+  color: var(--light);
+}
+
+.skills-section .skill-section-label #skill-to-gain {
+  color: var(--dark);
+}
+
+.skills-section #right-skill-section-label .skill-hover-info {
+  left: -45px;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: var(--stroke-dashoffset-final-value);
+  }
+}
+
+@keyframes reverse-stroke {
+  from {
+    stroke-dashoffset: var(--stroke-dashoffset-final-value);
+  }
+  to {
     stroke-dashoffset: 500;
-    stroke-linecap: round;
-    animation: reverse-stroke 0.3s ease-in-out;
-    transition: stroke-width 0.1s, stroke 0.5s;
-    transition-delay: 0.3s, 0s;
   }
-
-  .skills-section .skill-section-label:hover .skill-section-container .skill-container #circle #skill-circle-bar {
-    stroke: var(--dark);
-  }
-
-  .skills-section .skill-switch-input:checked + .skill-section-label .skill-section-container .skill-container #circle #skill-circle-bar {
-    stroke-width: 20;
-    transition-delay: 0.5s, 0s;
-    animation: stroke 0.6s ease-in-out 0.5s forwards;
-  }
-
-  .skills-section .skill-section-label .skill-section-container .skill-container #circle #full-circle-bar {
-    fill: transparent;
-    stroke: rgba(0,0,0,0.9);
-    stroke-width: 20;
-    stroke-dasharray: 500;
-    stroke-dashoffset: 165;
-    stroke-linecap: round;
-    transition: 0.5s;
-    transition-property: stroke;
-  }
-
-  .skills-section .skill-section-label:hover .skill-section-container .skill-container #circle #full-circle-bar {
-    stroke: rgba(0, 0, 0, 0.2);
-  }
-
-  .skills-section .skill-section-label .skill-section-container .skill-container .skill-circle-text {
-    position: absolute;
-    height: 200px;
-    width: 200px;
-    left: 50%;
-    top: 50%;
-    font-size: 11px;
-    font-weight: 700;
-    fill: rgba(0,0,0,0.9);
-  }
-
-  .skills-section .skill-section-label:hover .skill-section-container .skill-container .skill-circle-text {
-    fill: var(--dark);
-  }
-
-  .skills-section .skill-section-label .skill-section-container .skill-container #advanced-skill-level {
-    margin-left: -25px;
-    margin-top: 14px;
-    transform: translate(-50%, -50%) rotate(80deg);
-  }
-
-  .skills-section .skill-section-label .skill-section-container .skill-container #basic-skill-level {
-    margin-left: 4px;
-    margin-top: 25px;
-    transform: translate(-50%, -50%) rotate(170deg);
-  }
-
-  .skills-section .skill-section-label .skill-section-container .skill-container #newbie-skill-level {
-    margin-left: -25px;
-    margin-top: -5px;
-    transform: translate(-50%, -50%) rotate(280deg);
-  }
-
-  .skills-section .skill-section-label .skill-section-container .skill-container .skill-text {
-    position: absolute;
-    font-size: 14px;
-    color: var(--light);
-    transition: 0.5s;
-    transition-property: color;
-  }
-
-  .skills-section .skill-section-label:hover .skill-section-container .skill-container .skill-text {
-    color: var(--dark);
-    transition: 0.5s;
-    transition-property: color;
-  }
-
-  .skills-section .skill-section-label .skill-hover-info {
-    position: absolute;
-    font-size: 12px;
-    top: 0;
-    right: -45px;
-    width: 75px;
-  }
-
-  .skills-section .skill-section-label #current-skill {
-    color: var(--light);
-  }
-
-  .skills-section .skill-section-label #skill-to-gain {
-    color: var(--dark);
-  }
-
-  .skills-section #right-skill-section-label .skill-hover-info {
-    left: -45px;
-  }
-
-  @keyframes stroke {
-    100%{
-      stroke-dashoffset: var(--stroke-dashoffset-final-value);
-    }
-  }
-
-  @keyframes reverse-stroke {
-    from{
-      stroke-dashoffset: var(--stroke-dashoffset-final-value);
-    }
-    to{
-      stroke-dashoffset: 500;
-    }
-  }
+}
 /* 
 STOP SKILLS SECTION
 */
@@ -863,13 +924,14 @@ START WORK EXPERIENCE SECTION
 }
 
 .toggle-switch:has(> .switch-input:checked) ~ .work-experience-section {
-  box-shadow: 0px 7px 3px -3px rgba(0,0,0,0.9);
+  box-shadow: 0px 7px 3px -3px rgba(0, 0, 0, 0.9);
   margin-top: 10px;
   margin-left: -8px;
   padding-bottom: 50px;
   height: 700px;
   transition-delay: 0.8s;
-  transition-property: height, box-shadow, margin-top, margin-left, padding-bottom;
+  transition-property: height, box-shadow, margin-top, margin-left,
+    padding-bottom;
 }
 
 /* 
