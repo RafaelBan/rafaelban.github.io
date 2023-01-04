@@ -37,7 +37,22 @@
             <span class="hello-world-text">&nbsp;h&nbsp;&nbsp;&nbsp;e&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;d</span>
             <span class="my-name-text">Rafael-Valentin Ban</span>
             <span class="current-position">S o f t w a r e<br><br>D e v e l o p e r</span>
-            <img class="me-photo" src="img/rafa-photo-1.png" alt="Rafael-Valentin Ban" height="585">
+            <div id="photo-carousel" class="photo-carousel">
+                <input type="radio" name="slider" style="display:none;" id="first-image">
+                <input type="radio" name="slider" style="display:none;" id="second-image">
+                <input type="radio" name="slider" style="display:none;" id="third-image">
+                <div class="photo-cards">
+                    <label class="photo-card" for="first-image" id="first-image-label">
+                        <img src="img/first_image.jpg">
+                    </label>
+                    <label class="photo-card" for="second-image" id="second-image-label">
+                        <img src="img/second_image.jpg">
+                    </label>
+                    <label class="photo-card" for="third-image" id="third-image-label">
+                        <img src="img/third_image.jpg">
+                    </label>
+                </div>
+            </div>
         </div>
         <div id="nav-bar" class="nav-bar">
             <div class="nav-bar-element" onclick="scrollIntoSection('header-container');">// home</div>

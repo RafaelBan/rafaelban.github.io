@@ -4,6 +4,18 @@
   scroll-behavior: smooth;
 }
 
+:root:has(#first-image:checked) {
+  --secondary-color: rgba(20,32,43,1);
+}
+
+:root:has(#second-image:checked) {
+  --secondary-color: rgba(48,41,31,1);
+}
+
+:root:has(#third-image:checked) {
+  --secondary-color: rgba(45,45,45,1);
+}
+
 body {
   background-color: var(--dark);
   margin: 0px;
@@ -156,11 +168,11 @@ START HELLO WORLD TEXT
   opacity: 0;
   transition: 0.5s;
   transition-delay: 0.5s;
-  background: linear-gradient(180deg, rgba(20,32,43,1) 65%, rgba(21,21,21,1) 100%);
 }
 
 .toggle-switch:has(> .switch-input:checked) ~ .header-container {
   opacity: 1;
+  background: linear-gradient(180deg, var(--secondary-color) 65%, var(--dark) 100%);
   min-height: 300px;
   height: 80vh;
   transition: 0.5s;
@@ -227,19 +239,72 @@ START MY NAME, POSITION AND PHOTO
   transition-delay: 0.5s;
 }
 
-.header-container .me-photo {
-  margin-top: -900px;
+.header-container .photo-carousel {
+  margin-top: -800px;
   margin-left: auto;
   margin-right: 50px;
   visibility: hidden;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   transform: translateY(0px);
   transition: 0.3s;
 }
 
-.toggle-switch:has(> .switch-input:checked) ~ .header-container .me-photo {
+.toggle-switch:has(> .switch-input:checked) ~ .header-container .photo-carousel {
   visibility: visible;
   transform: translateY(925px);
   transition-delay: 0.5s;
+}
+
+.header-container .photo-carousel .photo-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.header-container .photo-carousel .photo-cards .photo-card {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform .4s ease;
+  cursor: pointer;
+}
+
+.header-container .photo-carousel .photo-cards .photo-card img {
+  border-radius: 10px;
+}
+
+#first-image:checked ~ .photo-cards #third-image-label, #second-image:checked ~ .photo-cards #first-image-label, #third-image:checked ~ .photo-cards #second-image-label {
+  transform: translatex(-40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#first-image:checked ~ .photo-cards #second-image-label, #second-image:checked ~ .photo-cards #third-image-label, #third-image:checked ~ .photo-cards #first-image-label {
+  transform: translatex(40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#first-image:checked ~ .photo-cards #first-image-label, #second-image:checked ~ .photo-cards #second-image-label, #third-image:checked ~ .photo-cards #third-image-label {
+  transform: translatex(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+#first-image:checked ~ .photo-cards #first-image-label img, #second-image:checked ~ .photo-cards #second-image-label img, #third-image:checked ~ .photo-cards #third-image-label img {
+  box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
 }
 
 /* 
@@ -550,7 +615,7 @@ START PERSONAL DESCRIPTION
 .about-me-section .about-me-text {
   margin-top: 9.5rem;
   font-size: 0rem;
-  color: rgb(29, 47, 63);
+  color: var(--secondary-color);
   transform: rotate(-30deg);
   height: 5rem;
 }

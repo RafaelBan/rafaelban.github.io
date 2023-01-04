@@ -72,4 +72,7 @@ window.onload = function () {
     }
     
     window.addEventListener("mousemove", onMouseMove);
+
+  var photoCarouselInputs = document.getElementById("photo-carousel").getElementsByTagName("input");
+  photoCarouselInputs[Math.floor(Math.random() * 3)].checked = true;
 }
