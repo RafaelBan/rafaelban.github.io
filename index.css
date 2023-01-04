@@ -640,7 +640,14 @@ START PERSONAL DESCRIPTION
   width: 0px;
 }
 
-.about-me-section .about-me-text {
+.toggle-switch:has(> .switch-input:checked)
+  ~ .about-me-section
+  > .section-text-container {
+  height: 500px;
+  width: 500px;
+}
+
+.about-me-section .section-text-container .about-me-text {
   position: absolute;
   margin-left: 2.4rem;
   margin-top: 10.4rem;
@@ -649,23 +656,16 @@ START PERSONAL DESCRIPTION
   height: 5rem;
 }
 
-.about-me-section #third-color {
+.about-me-section .section-text-container #third-color {
   color: var(--third-color);
   margin-left: 2.2rem;
   margin-top: 10rem;
 }
 
-.about-me-section #fourth-color {
+.about-me-section .section-text-container #fourth-color {
   color: var(--fourth-color);
   margin-left: 2rem;
   margin-top: 9.6rem;
-}
-
-.toggle-switch:has(> .switch-input:checked)
-  ~ .about-me-section
-  > .section-text-container {
-  height: 500px;
-  width: 500px;
 }
 
 .about-me-section .personal-description {
