@@ -5,15 +5,24 @@
 }
 
 :root:has(#first-image:checked) {
-  --secondary-color: rgba(20, 32, 43, 1);
+  --secondary-background: rgba(20, 32, 43, 1);
+  --secondary-color: rgb(49, 80, 109);
+  --third-color: rgb(100, 85, 65);
+  --fourth-color: rgb(105, 105, 105);
 }
 
 :root:has(#second-image:checked) {
-  --secondary-color: rgba(48, 41, 31, 1);
+  --secondary-background: rgba(48, 41, 31, 1);
+  --secondary-color: rgb(100, 85, 65);
+  --third-color: rgb(105, 105, 105);
+  --fourth-color: rgb(49, 80, 109);
 }
 
 :root:has(#third-image:checked) {
-  --secondary-color: rgba(45, 45, 45, 1);
+  --secondary-background: rgba(45, 45, 45, 1);
+  --secondary-color: rgb(105, 105, 105);
+  --third-color: rgb(49, 80, 109);
+  --fourth-color: rgb(100, 85, 65);
 }
 
 body {
@@ -164,7 +173,6 @@ START HELLO WORLD TEXT
 .header-container {
   position: relative;
   display: flex;
-  height: 300px;
   opacity: 0;
   transition: 0.5s;
   transition-delay: 0.5s;
@@ -174,7 +182,7 @@ START HELLO WORLD TEXT
   opacity: 1;
   background: linear-gradient(
     180deg,
-    var(--secondary-color) 65%,
+    var(--secondary-background) 65%,
     var(--dark) 100%
   );
   min-height: 300px;
@@ -627,21 +635,37 @@ STOP COFFEE CUP
 START PERSONAL DESCRIPTION
 */
 
+.about-me-section .section-text-container {
+  height: 0rem;
+  width: 0rem;
+}
+
 .about-me-section .about-me-text {
-  margin-top: 9.5rem;
-  font-size: 0rem;
+  position: absolute;
+  margin-left: 2.4rem;
+  margin-top: 10.4rem;
+  font-size: 5rem;
   color: var(--secondary-color);
-  transform: rotate(-30deg);
   height: 5rem;
+}
+
+.about-me-section #third-color {
+  color: var(--third-color);
+  margin-left: 2.2rem;
+  margin-top: 10rem;
+}
+
+.about-me-section #fourth-color {
+  color: var(--fourth-color);
+  margin-left: 2rem;
+  margin-top: 9.6rem;
 }
 
 .toggle-switch:has(> .switch-input:checked)
   ~ .about-me-section
-  > .about-me-text {
-  font-size: 5rem;
-  margin-left: 2rem;
-  transition-delay: 0.8s;
-  transition-property: font-size;
+  > .section-text-container {
+  height: 20rem;
+  width: 20rem;
 }
 
 .about-me-section .personal-description {
