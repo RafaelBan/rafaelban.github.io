@@ -40,39 +40,36 @@ function scrollIntoSection(sectionName) {
 }
 
 window.onload = function () {
-    const $navBar = document.getElementById("nav-bar");
-    const $bigBall = document.getElementById('cursor-ball-big');
-    const $smallBall = document.getElementById('cursor-ball-small');
+  const $navBar = document.getElementById("nav-bar");
+  const $bigBall = document.getElementById("cursor-ball-big");
+  const $smallBall = document.getElementById("cursor-ball-small");
 
-    $(window).scroll(function () {
-        var navBarHeight = getElementHeight($navBar);
-        if (isInViewport(document.getElementById("about-me"), navBarHeight)) {
-          $navBar.style.bottom = "none";
-          $navBar.style.top = "0";
-        }
-      });
-
-    const isInViewport = function (el, navBarHeight) {
-        var elementTop = el.offsetTop - navBarHeight;
-        var elementBottom = elementTop + el.offsetHeight;
-        
-        var viewportTop = $(window).scrollTop();
-        return elementBottom > viewportTop && elementTop < viewportTop;
-    };
-
-    const onMouseMove = function (e) {    
-        TweenMax.to($bigBall, .3, {
-            x: e.clientX + 35,
-            y: e.clientY + 35
-          })
-          TweenMax.to($smallBall, .1, {
-            x: e.clientX + 45,
-            y: e.clientY + 45
-          })
+  $(window).scroll(function () {
+    var navBarHeight = getElementHeight($navBar);
+    if (isInViewport(document.getElementById("about-me"), navBarHeight)) {
+      $navBar.style.bottom = "none";
+      $navBar.style.top = "0";
     }
-    
-    window.addEventListener("mousemove", onMouseMove);
+  });
 
-  var photoCarouselInputs = document.getElementById("photo-carousel").getElementsByTagName("input");
-  photoCarouselInputs[Math.floor(Math.random() * 3)].checked = true;
-}
+  const isInViewport = function (el, navBarHeight) {
+    var elementTop = el.offsetTop - navBarHeight;
+    var elementBottom = elementTop + el.offsetHeight;
+
+    var viewportTop = $(window).scrollTop();
+    return elementBottom > viewportTop && elementTop < viewportTop;
+  };
+
+  const onMouseMove = function (e) {
+    TweenMax.to($bigBall, 0.3, {
+      x: e.clientX + 35,
+      y: e.clientY + 35,
+    });
+    TweenMax.to($smallBall, 0.1, {
+      x: e.clientX + 45,
+      y: e.clientY + 45,
+    });
+  };
+
+  window.addEventListener("mousemove", onMouseMove);
+};
