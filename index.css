@@ -394,7 +394,7 @@ START ABOUT ME SECTION
   visibility: visible;
   margin-top: 10px;
   margin-left: -8px;
-  padding: 120px 0px;
+  padding: 150px 0px;
   height: auto;
   transition-delay: 0.8s;
   transition-property: visibility, height, box-shadow, margin-top, margin-left,
@@ -664,14 +664,14 @@ START PERSONAL DESCRIPTION
 .toggle-switch:has(> .switch-input:checked)
   ~ .about-me-section
   > .section-text-container {
-  height: 20rem;
-  width: 20rem;
+  height: 500px;
+  width: 500px;
 }
 
 .about-me-section .personal-description {
   display: none;
   font-size: 0px;
-  width: 50vw;
+  width: 60vw;
   vertical-align: top;
 }
 
