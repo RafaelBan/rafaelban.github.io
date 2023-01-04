@@ -175,12 +175,14 @@ START HELLO WORLD TEXT
   background: linear-gradient(180deg, var(--secondary-color) 65%, var(--dark) 100%);
   min-height: 300px;
   height: 80vh;
-  transition: 0.5s;
-  transition-delay: 0s;
+}
+
+.header-container .hello-world-name-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .header-container .hello-world-text {
-  position: absolute;
   color: white;
   margin-top: 220px;
   margin-left: 100px;
@@ -205,7 +207,7 @@ START MY NAME, POSITION AND PHOTO
 */
 .header-container .my-name-text {
   width: 500px;
-  margin-top: 250px;
+  margin-top: 1rem;
   margin-left: 40px;
   color: white;
   font-size: 120px;
@@ -225,7 +227,6 @@ START MY NAME, POSITION AND PHOTO
   color: white;
   font-size: 30px;
   margin-left: 30px;
-  margin-top: -400px;
   visibility: hidden;
   transform: translateY(-550px);
   transition: 0.3s;
@@ -235,7 +236,7 @@ START MY NAME, POSITION AND PHOTO
   ~ .header-container
   .current-position {
   visibility: visible;
-  transform: translateY(475px);
+  transform: translateY(80px);
   transition-delay: 0.5s;
 }
 
@@ -371,7 +372,7 @@ START ABOUT ME SECTION
   visibility: visible;
   margin-top: 10px;
   margin-left: -8px;
-  padding: 150px 0px;
+  padding: 120px 0px;
   height: auto;
   transition-delay: 0.8s;
   transition-property: visibility, height, box-shadow, margin-top, margin-left,
