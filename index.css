@@ -636,8 +636,8 @@ START PERSONAL DESCRIPTION
 */
 
 .about-me-section .section-text-container {
-  height: 0rem;
-  width: 0rem;
+  height: 0px;
+  width: 0px;
 }
 
 .about-me-section .about-me-text {
