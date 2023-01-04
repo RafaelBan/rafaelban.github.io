@@ -386,6 +386,7 @@ START ABOUT ME SECTION
   color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   visibility: hidden;
 }
@@ -635,37 +636,34 @@ STOP COFFEE CUP
 START PERSONAL DESCRIPTION
 */
 
-.about-me-section .section-text-container {
-  height: 0px;
-  width: 0px;
+.section-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 430px;
+  height: 80px;
 }
 
-.toggle-switch:has(> .switch-input:checked)
-  ~ .about-me-section
-  > .section-text-container {
-  height: 500px;
-  width: 500px;
-}
 
-.about-me-section .section-text-container .about-me-text {
+.section-text-container .text {
   position: absolute;
-  margin-left: 2.4rem;
-  margin-top: 10.4rem;
+  margin-left: 0.6rem;
+  margin-top: 1.4rem;
   font-size: 5rem;
   color: var(--secondary-color);
   height: 5rem;
 }
 
-.about-me-section .section-text-container #third-color {
+.section-text-container #third-color {
   color: var(--third-color);
-  margin-left: 2.2rem;
-  margin-top: 10rem;
+  margin-left: 0.3rem;
+  margin-top: 1rem;
 }
 
-.about-me-section .section-text-container #fourth-color {
+.section-text-container #fourth-color {
   color: var(--fourth-color);
-  margin-left: 2rem;
-  margin-top: 9.6rem;
+  margin-left: 0rem;
+  margin-top: 0.6rem;
 }
 
 .about-me-section .personal-description {
@@ -695,7 +693,7 @@ START SKILLS SECTION
 */
 .skills-section {
   position: relative;
-  display: inline-block;
+  flex-direction: column;
   height: 0px;
   color: white;
   overflow: hidden;
@@ -704,9 +702,9 @@ START SKILLS SECTION
 
 .toggle-switch:has(> .switch-input:checked) ~ .skills-section {
   visibility: visible;
-  padding-left: 50px;
+  padding-left: 300px;
   padding-bottom: 50px;
-  padding-top: 50px;
+  padding-top: 130px;
   height: auto;
   width: 99vw;
   transition-delay: 0.8s;
@@ -749,13 +747,13 @@ START SKILLS SECTION
 }
 
 .skills-section .skill-switch-input:checked + .skill-section-label {
-  width: calc(100vw - 500px);
+  width: calc(100vw - 900px);
 }
 
 .skills-section #right-skill-section-label {
   border-width: 0px;
   transform: translateZ(1px) rotate(180deg);
-  margin-left: calc(100vw - 600px);
+  margin-left: calc(100vw - 1000px);
 }
 
 .skills-section .skill-switch-input:checked + #right-skill-section-label {
@@ -764,7 +762,7 @@ START SKILLS SECTION
 
 .skills-section .skill-section-label .skill-section-container {
   position: relative;
-  width: calc(100vw - 600px);
+  width: calc(100vw - 1000px);
 }
 
 .skills-section .skill-section-label #right-skill-section-container {
@@ -814,7 +812,7 @@ START SKILLS SECTION
   .skill-switch-input:checked
   + .skill-section-label
   .skill-section-arrow {
-  margin-left: calc(100vw - 550px);
+  margin-left: calc(100vw - 950px);
 }
 
 .skills-section .skill-section-label .skill-section-arrow .skill-arrow-design {
@@ -844,7 +842,7 @@ START SKILLS SECTION
   overflow: hidden;
   display: inline-block;
   padding-top: 15px;
-  width: calc(100vw - 500px);
+  width: calc(100vw - 900px);
   height: auto;
 }
 
