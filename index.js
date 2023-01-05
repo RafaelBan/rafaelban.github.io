@@ -6,7 +6,7 @@ function setArrowHeight() {
   for (i = 0; i < childLabels.length; i++) {
     var labelHeight = getElementHeight(childLabels[i]);
     var skillSectionArrow = childLabels[i].querySelector(
-      "#skill-section-arrow"
+      ".skill-section-arrow"
     );
     if (skillSectionArrow) {
       skillSectionArrow.style.height = labelHeight;

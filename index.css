@@ -45,6 +45,10 @@ body {
   background: rgba(0, 0, 0, 0.2);
 }
 
+/* 
+START CURSOR
+*/
+
 .cursor {
   pointer-events: none;
 }
@@ -61,6 +65,9 @@ body {
   fill: var(--light);
 }
 
+/* 
+END CURSOR
+*/
 /* 
 START SWITCH
 */
@@ -644,7 +651,6 @@ START PERSONAL DESCRIPTION
   height: 80px;
 }
 
-
 .section-text-container .text {
   position: absolute;
   margin-left: 0.6rem;
@@ -654,13 +660,13 @@ START PERSONAL DESCRIPTION
   height: 5rem;
 }
 
-.section-text-container #third-color {
+.section-text-container .third-color {
   color: var(--third-color);
   margin-left: 0.3rem;
   margin-top: 1rem;
 }
 
-.section-text-container #fourth-color {
+.section-text-container .fourth-color {
   color: var(--fourth-color);
   margin-left: 0rem;
   margin-top: 0.6rem;
@@ -862,7 +868,7 @@ START SKILLS SECTION
   .skill-section-label
   .skill-section-container
   .skill-container
-  #circle {
+  .svg-circle {
   position: absolute;
   height: 200px;
   width: 200px;
@@ -875,8 +881,8 @@ START SKILLS SECTION
   .skill-section-label
   .skill-section-container
   .skill-container
-  #circle
-  #skill-circle-bar {
+  .svg-circle
+  .skill-circle-bar {
   fill: transparent;
   stroke: var(--light);
   stroke-width: 0;
@@ -892,8 +898,8 @@ START SKILLS SECTION
   .skill-section-label:hover
   .skill-section-container
   .skill-container
-  #circle
-  #skill-circle-bar {
+  .svg-circle
+  .skill-circle-bar {
   stroke: var(--dark);
 }
 
@@ -902,8 +908,8 @@ START SKILLS SECTION
   + .skill-section-label
   .skill-section-container
   .skill-container
-  #circle
-  #skill-circle-bar {
+  .svg-circle
+  .skill-circle-bar {
   stroke-width: 20;
   transition-delay: 0.5s, 0s;
   animation: stroke 0.6s ease-in-out 0.5s forwards;
@@ -913,8 +919,8 @@ START SKILLS SECTION
   .skill-section-label
   .skill-section-container
   .skill-container
-  #circle
-  #full-circle-bar {
+  .svg-circle
+  .full-circle-bar {
   fill: transparent;
   stroke: rgba(0, 0, 0, 0.9);
   stroke-width: 20;
@@ -929,8 +935,8 @@ START SKILLS SECTION
   .skill-section-label:hover
   .skill-section-container
   .skill-container
-  #circle
-  #full-circle-bar {
+  .svg-circle
+  .full-circle-bar {
   stroke: rgba(0, 0, 0, 0.2);
 }
 
@@ -961,7 +967,7 @@ START SKILLS SECTION
   .skill-section-label
   .skill-section-container
   .skill-container
-  #advanced-skill-level {
+  .advanced-skill-level {
   margin-left: -25px;
   margin-top: 14px;
   transform: translate(-50%, -50%) rotate(80deg);
@@ -971,7 +977,7 @@ START SKILLS SECTION
   .skill-section-label
   .skill-section-container
   .skill-container
-  #basic-skill-level {
+  .basic-skill-level {
   margin-left: 4px;
   margin-top: 25px;
   transform: translate(-50%, -50%) rotate(170deg);
@@ -981,7 +987,7 @@ START SKILLS SECTION
   .skill-section-label
   .skill-section-container
   .skill-container
-  #newbie-skill-level {
+  .newbie-skill-level {
   margin-left: -25px;
   margin-top: -5px;
   transform: translate(-50%, -50%) rotate(280deg);
@@ -1017,11 +1023,11 @@ START SKILLS SECTION
   width: 75px;
 }
 
-.skills-section .skill-section-label #current-skill {
+.skills-section .skill-section-label .current-skill {
   color: var(--light);
 }
 
-.skills-section .skill-section-label #skill-to-gain {
+.skills-section .skill-section-label .skill-to-gain {
   color: var(--dark);
 }
 
