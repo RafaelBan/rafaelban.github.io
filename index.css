@@ -384,6 +384,41 @@ START NAV BAR
 /* 
 STOP NAV BAR
 */
+/*
+START SECTION TITLE
+*/
+.section-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 430px;
+  height: 80px;
+}
+
+.section-title-container .text {
+  position: absolute;
+  margin-left: 0.6rem;
+  margin-top: 1.4rem;
+  font-size: 5rem;
+  color: var(--secondary-color);
+  height: 5rem;
+}
+
+.section-title-container .third-color {
+  color: var(--third-color);
+  margin-left: 0.3rem;
+  margin-top: 1rem;
+}
+
+.section-title-container .fourth-color {
+  color: var(--fourth-color);
+  margin-left: 0rem;
+  margin-top: 0.6rem;
+}
+
+/*
+END SECTION TITLE
+*/
 /* 
 START ABOUT ME SECTION
 */
@@ -643,35 +678,6 @@ STOP COFFEE CUP
 START PERSONAL DESCRIPTION
 */
 
-.section-text-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 430px;
-  height: 80px;
-}
-
-.section-text-container .text {
-  position: absolute;
-  margin-left: 0.6rem;
-  margin-top: 1.4rem;
-  font-size: 5rem;
-  color: var(--secondary-color);
-  height: 5rem;
-}
-
-.section-text-container .third-color {
-  color: var(--third-color);
-  margin-left: 0.3rem;
-  margin-top: 1rem;
-}
-
-.section-text-container .fourth-color {
-  color: var(--fourth-color);
-  margin-left: 0rem;
-  margin-top: 0.6rem;
-}
-
 .about-me-section .personal-description {
   display: none;
   font-size: 0px;
@@ -698,8 +704,9 @@ STOP ABOUT ME SECTION
 START SKILLS SECTION
 */
 .skills-section {
-  position: relative;
+  display: flex;
   flex-direction: column;
+  gap: 50px;
   height: 0px;
   color: white;
   overflow: hidden;
@@ -708,153 +715,63 @@ START SKILLS SECTION
 
 .toggle-switch:has(> .switch-input:checked) ~ .skills-section {
   visibility: visible;
-  padding-left: 300px;
+  padding-left: 15vw;
   padding-bottom: 50px;
   padding-top: 130px;
   height: auto;
-  width: 99vw;
+  width: 70vw;
   transition-delay: 0.8s;
   transition-property: visibility, height, box-shadow, margin-top, margin-left;
 }
 
-.skills-section .skill-switch-input {
-  position: absolute;
-  display: none;
-}
-
-.skills-section .skill-section-label {
-  display: block;
+.skills-section .skill-category-container {
+  display: flex;
   background-color: var(--dark);
   box-shadow: inset 0px 0px 0px 5px var(--light);
   min-height: 300px;
-  width: 100px;
-  overflow: hidden;
+  width: calc(100vw - 650px);
   visibility: hidden;
-  padding: 10px 50px 10px 300px;
-  margin-top: 50px;
   border-radius: 100px;
-  transition: width 0.5s, background-color 0.5s, margin-left 0.5s, visibility 0s,
-    padding 0s, margin-top 0s;
-  transition-delay: width 0s, background-color 0s, margin-left 0s,
-    visibility 0.8s, padding 0.8s, margin-top 0.8s;
+  transition: background-color 0.5s;
 }
 
 .toggle-switch:has(> .switch-input:checked)
   ~ .skills-section
-  .skill-section-label {
+  .skill-category-container {
   visibility: visible;
-  padding: 10px 50px 10px 300px;
-  margin-top: 50px;
 }
 
-.skills-section .skill-section-label:hover {
-  cursor: pointer;
+.skills-section .skill-category-container:hover {
   background-color: var(--light);
 }
 
-.skills-section .skill-switch-input:checked + .skill-section-label {
-  width: calc(100vw - 900px);
-}
-
-.skills-section #right-skill-section-label {
-  border-width: 0px;
-  transform: translateZ(1px) rotate(180deg);
-  margin-left: calc(100vw - 1000px);
-}
-
-.skills-section .skill-switch-input:checked + #right-skill-section-label {
-  margin-left: 0;
-}
-
-.skills-section .skill-section-label .skill-section-container {
-  position: relative;
+.skills-section .skill-category-container .circles-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  overflow: hidden;
   width: calc(100vw - 1000px);
+  transition: width 0.5s;
 }
 
-.skills-section .skill-section-label #right-skill-section-container {
-  transform: rotate(-180deg);
-}
-
-.skills-section .skill-section-label .skill-section-container-text {
-  position: absolute;
-  height: 100px;
+.skills-section .skill-category-container .skill-section-title {
   width: 220px;
+  align-self: center;
   text-align: center;
-  padding-top: var(--skill-padding);
-  margin-left: -230px;
+  margin-right: 90px;
+  margin-left: 50px;
   font-size: 30px;
   color: var(--light);
-  z-index: 1;
-  pointer-events: none;
   transition: 0.5s;
   transition-property: color;
 }
 
-.skills-section .skill-section-label:hover .skill-section-container-text {
+.skills-section .skill-category-container:hover .skill-section-title {
   color: var(--dark);
-  transition: 0.5s;
-  transition-property: color;
 }
 
-.skills-section .skill-section-label #right-skill-section-container-text {
-  transform: rotate(-180deg);
-  padding-top: 0;
-  padding-bottom: var(--skill-padding);
-}
-
-.skills-section .skill-section-label .skill-section-arrow {
-  position: absolute;
-  border-radius: 0 100px 100px 0;
-  width: 100px;
-  margin-top: -10px;
-  margin-left: 55px;
-  margin-bottom: 10px;
-  background-color: var(--light);
-  z-index: 1;
-  transition: margin-left 0.5s;
-}
-
-.skills-section
-  .skill-switch-input:checked
-  + .skill-section-label
-  .skill-section-arrow {
-  margin-left: calc(100vw - 950px);
-}
-
-.skills-section .skill-section-label .skill-section-arrow .skill-arrow-design {
-  border: solid var(--dark);
-  border-width: 0 15px 15px 0;
-  display: inline-block;
-  padding: 15px;
-  margin-top: 130px;
-  margin-left: 15px;
-  transform: rotate(-45deg);
-  transition: margin-left 0.5s, transform 0.5s;
-}
-
-.skills-section
-  .skill-switch-input:checked
-  + .skill-section-label
-  .skill-section-arrow
-  .skill-arrow-design {
-  transform: rotate(135deg);
-  margin-left: 35px;
-}
-
-.skills-section
-  .skill-section-label
-  .skill-section-container
-  .skill-section-skills {
-  overflow: hidden;
-  display: inline-block;
-  padding-top: 15px;
-  width: calc(100vw - 900px);
-  height: auto;
-}
-
-.skills-section .skill-section-label .skill-section-container .skill-container {
+.skills-section .skill-category-container .circles-container .skill-container {
   position: relative;
-  display: inline-block;
   text-align: center;
   width: 330px;
   height: 250px;
@@ -865,8 +782,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .svg-circle {
   position: absolute;
@@ -878,25 +795,23 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .svg-circle
   .skill-circle-bar {
   fill: transparent;
   stroke: var(--light);
-  stroke-width: 0;
+  stroke-width: 20;
   stroke-dasharray: 500;
-  stroke-dashoffset: 500;
+  stroke-dashoffset: var(--stroke-dashoffset-final-value);
   stroke-linecap: round;
-  animation: reverse-stroke 0.3s ease-in-out;
-  transition: stroke-width 0.1s, stroke 0.5s;
-  transition-delay: 0.3s, 0s;
+  transition: stroke 0.5s;
 }
 
 .skills-section
-  .skill-section-label:hover
-  .skill-section-container
+  .skill-category-container:hover
+  .circles-container
   .skill-container
   .svg-circle
   .skill-circle-bar {
@@ -904,20 +819,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-switch-input:checked
-  + .skill-section-label
-  .skill-section-container
-  .skill-container
-  .svg-circle
-  .skill-circle-bar {
-  stroke-width: 20;
-  transition-delay: 0.5s, 0s;
-  animation: stroke 0.6s ease-in-out 0.5s forwards;
-}
-
-.skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .svg-circle
   .full-circle-bar {
@@ -932,8 +835,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label:hover
-  .skill-section-container
+  .skill-category-container:hover
+  .circles-container
   .skill-container
   .svg-circle
   .full-circle-bar {
@@ -941,8 +844,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .skill-circle-text {
   position: absolute;
@@ -956,16 +859,16 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label:hover
-  .skill-section-container
+  .skill-category-container:hover
+  .circles-container
   .skill-container
   .skill-circle-text {
   fill: var(--dark);
 }
 
 .skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .advanced-skill-level {
   margin-left: -25px;
@@ -974,8 +877,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .basic-skill-level {
   margin-left: 4px;
@@ -984,8 +887,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .newbie-skill-level {
   margin-left: -25px;
@@ -994,8 +897,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label
-  .skill-section-container
+  .skill-category-container
+  .circles-container
   .skill-container
   .skill-text {
   position: absolute;
@@ -1006,8 +909,8 @@ START SKILLS SECTION
 }
 
 .skills-section
-  .skill-section-label:hover
-  .skill-section-container
+  .skill-category-container:hover
+  .circles-container
   .skill-container
   .skill-text {
   color: var(--dark);
@@ -1015,40 +918,26 @@ START SKILLS SECTION
   transition-property: color;
 }
 
-.skills-section .skill-section-label .skill-hover-info {
-  position: absolute;
+.skills-section .skill-category-container .skill-hover-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 100px;
   font-size: 12px;
-  top: 0;
-  right: -45px;
-  width: 75px;
+  width: 90px;
 }
 
-.skills-section .skill-section-label .current-skill {
+.skills-section .skill-category-container .current-skill {
   color: var(--light);
+  transform: rotate(-90deg) translateY(15px);
 }
 
-.skills-section .skill-section-label .skill-to-gain {
+.skills-section .skill-category-container .skill-to-gain {
   color: var(--dark);
+  transform: rotate(-90deg) translateY(15px);
 }
 
-.skills-section #right-skill-section-label .skill-hover-info {
-  left: -45px;
-}
-
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: var(--stroke-dashoffset-final-value);
-  }
-}
-
-@keyframes reverse-stroke {
-  from {
-    stroke-dashoffset: var(--stroke-dashoffset-final-value);
-  }
-  to {
-    stroke-dashoffset: 500;
-  }
-}
 /* 
 STOP SKILLS SECTION
 */
@@ -1075,4 +964,5 @@ START WORK EXPERIENCE SECTION
 
 /* 
 STOP WORK EXPERIENCE SECTION
+1080 lines before
 */
