@@ -180,6 +180,7 @@ START HELLO WORLD TEXT
 .header-container {
   position: relative;
   display: flex;
+  width: 100vw;
   opacity: 0;
   transition: 0.5s;
   transition-delay: 0.5s;
@@ -385,6 +386,17 @@ START NAV BAR
 STOP NAV BAR
 */
 /*
+START CONTENT
+*/
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  padding-top: 100px;
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+/*
 START SECTION TITLE
 */
 .section-title-container {
@@ -392,7 +404,7 @@ START SECTION TITLE
   justify-content: center;
   align-items: center;
   width: 430px;
-  height: 80px;
+  height: 140px;
 }
 
 .section-title-container .text {
@@ -423,7 +435,7 @@ END SECTION TITLE
 START ABOUT ME SECTION
 */
 
-.about-me-section {
+.main-content .about-me-section {
   height: 0px;
   color: white;
   display: flex;
@@ -433,15 +445,12 @@ START ABOUT ME SECTION
   visibility: hidden;
 }
 
-.toggle-switch:has(> .switch-input:checked) ~ .about-me-section {
+.toggle-switch:has(> .switch-input:checked) ~ .main-content .about-me-section {
   visibility: visible;
-  margin-top: 10px;
-  margin-left: -8px;
-  padding: 150px 0px;
+  padding-top: 50px;
   height: auto;
   transition-delay: 0.8s;
-  transition-property: visibility, height, box-shadow, margin-top, margin-left,
-    padding-bottom;
+  transition-property: visibility, height, padding-top;
 }
 
 /* 
@@ -451,12 +460,13 @@ START COFFEE CUP
 .about-me-section .coffee-container {
   display: none;
   overflow: hidden;
-  width: 500px;
+  width: 630px;
   height: 0px;
 }
 
 .toggle-switch:has(> .switch-input:checked)
-  ~ .about-me-section
+  ~ .main-content
+  .about-me-section
   .coffee-container {
   display: inline-block;
   height: 500px;
@@ -686,7 +696,8 @@ START PERSONAL DESCRIPTION
 }
 
 .toggle-switch:has(> .switch-input:checked)
-  ~ .about-me-section
+  ~ .main-content
+  .about-me-section
   > .personal-description {
   display: inline-block;
   font-size: 25px;
@@ -713,15 +724,13 @@ START SKILLS SECTION
   visibility: hidden;
 }
 
-.toggle-switch:has(> .switch-input:checked) ~ .skills-section {
+.toggle-switch:has(> .switch-input:checked) ~ .main-content .skills-section {
   visibility: visible;
-  padding-left: 15vw;
-  padding-bottom: 50px;
-  padding-top: 130px;
+  padding-top: 100px;
   height: auto;
-  width: 70vw;
+  width: 100%;
   transition-delay: 0.8s;
-  transition-property: visibility, height, box-shadow, margin-top, margin-left;
+  transition-property: visibility, height, padding-top;
 }
 
 .skills-section .skill-category-container {
@@ -729,14 +738,15 @@ START SKILLS SECTION
   background-color: var(--dark);
   box-shadow: inset 0px 0px 0px 5px var(--light);
   min-height: 300px;
-  width: calc(100vw - 650px);
+  width: 100%;
   visibility: hidden;
   border-radius: 100px;
   transition: background-color 0.5s;
 }
 
 .toggle-switch:has(> .switch-input:checked)
-  ~ .skills-section
+  ~ .main-content
+  .skills-section
   .skill-category-container {
   visibility: visible;
 }
@@ -750,7 +760,6 @@ START SKILLS SECTION
   flex-wrap: wrap;
   align-content: center;
   overflow: hidden;
-  width: calc(100vw - 1000px);
   transition: width 0.5s;
 }
 
@@ -773,7 +782,7 @@ START SKILLS SECTION
 .skills-section .skill-category-container .circles-container .skill-container {
   position: relative;
   text-align: center;
-  width: 330px;
+  width: 300px;
   height: 250px;
   font-size: 0px;
   transition: 0.3s;
@@ -930,11 +939,13 @@ START SKILLS SECTION
 
 .skills-section .skill-category-container .current-skill {
   color: var(--light);
+  width: 100px;
   transform: rotate(-90deg) translateY(15px);
 }
 
 .skills-section .skill-category-container .skill-to-gain {
   color: var(--dark);
+  width: 100px;
   transform: rotate(-90deg) translateY(15px);
 }
 
@@ -952,7 +963,9 @@ START WORK EXPERIENCE SECTION
   box-shadow: none;
 }
 
-.toggle-switch:has(> .switch-input:checked) ~ .work-experience-section {
+.toggle-switch:has(> .switch-input:checked)
+  ~ .main-content
+  .work-experience-section {
   margin-top: 10px;
   margin-left: -8px;
   padding-bottom: 50px;
@@ -965,4 +978,7 @@ START WORK EXPERIENCE SECTION
 /* 
 STOP WORK EXPERIENCE SECTION
 1080 lines before
+*/
+/*
+END CONTENT
 */
