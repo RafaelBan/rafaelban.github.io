@@ -30,6 +30,11 @@ body {
   margin: 0px;
   font-family: "Comfortaa", sans-serif;
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body:has(.toggle-switch > .switch-input:checked) {
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -391,10 +396,16 @@ START CONTENT
 .main-content {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+}
+
+.toggle-switch:has(> .switch-input:checked) ~ .main-content {
+  opacity: 1;
   gap: 200px;
   padding-top: 100px;
   padding-left: 15vw;
   padding-right: 15vw;
+  transition: all 0s, opacity 0.5ssssssssssssss;
 }
 /*
 START SECTION TITLE
@@ -436,21 +447,13 @@ START ABOUT ME SECTION
 */
 
 .main-content .about-me-section {
-  height: 0px;
+  height: auto;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  visibility: hidden;
-}
-
-.toggle-switch:has(> .switch-input:checked) ~ .main-content .about-me-section {
-  visibility: visible;
   padding-top: 50px;
-  height: auto;
-  transition-delay: 0.8s;
-  transition-property: visibility, height, padding-top;
 }
 
 /* 
@@ -458,21 +461,11 @@ START COFFEE CUP
 */
 
 .about-me-section .coffee-container {
-  display: none;
+  display: inline-block;
   overflow: hidden;
   width: 630px;
-  height: 0px;
-}
-
-.toggle-switch:has(> .switch-input:checked)
-  ~ .main-content
-  .about-me-section
-  .coffee-container {
-  display: inline-block;
   height: 500px;
   padding-left: 150px;
-  transition-delay: 0.8s;
-  transition-property: height;
 }
 
 .about-me-section .coffee-container .cup {
@@ -689,20 +682,10 @@ START PERSONAL DESCRIPTION
 */
 
 .about-me-section .personal-description {
-  display: none;
-  font-size: 0px;
-  width: 60vw;
-  vertical-align: top;
-}
-
-.toggle-switch:has(> .switch-input:checked)
-  ~ .main-content
-  .about-me-section
-  > .personal-description {
   display: inline-block;
   font-size: 25px;
-  transition-delay: 0.8s;
-  transition-property: font-size, margin;
+  width: 60vw;
+  vertical-align: top;
 }
 
 /*
@@ -718,19 +701,11 @@ START SKILLS SECTION
   display: flex;
   flex-direction: column;
   gap: 50px;
-  height: 0px;
-  color: white;
-  overflow: hidden;
-  visibility: hidden;
-}
-
-.toggle-switch:has(> .switch-input:checked) ~ .main-content .skills-section {
-  visibility: visible;
-  padding-top: 100px;
   height: auto;
   width: 100%;
-  transition-delay: 0.8s;
-  transition-property: visibility, height, padding-top;
+  color: white;
+  overflow: hidden;
+  padding-top: 100px;
 }
 
 .skills-section .skill-category-container {
@@ -739,16 +714,8 @@ START SKILLS SECTION
   box-shadow: inset 0px 0px 0px 5px var(--light);
   min-height: 300px;
   width: 100%;
-  visibility: hidden;
   border-radius: 100px;
   transition: background-color 0.5s;
-}
-
-.toggle-switch:has(> .switch-input:checked)
-  ~ .main-content
-  .skills-section
-  .skill-category-container {
-  visibility: visible;
 }
 
 .skills-section .skill-category-container:hover {
@@ -958,26 +925,15 @@ START WORK EXPERIENCE SECTION
 
 .work-experience-section {
   position: relative;
-  height: 0px;
+  height: 700px;
   color: white;
   box-shadow: none;
-}
-
-.toggle-switch:has(> .switch-input:checked)
-  ~ .main-content
-  .work-experience-section {
   margin-top: 10px;
   margin-left: -8px;
   padding-bottom: 50px;
-  height: 700px;
-  transition-delay: 0.8s;
-  transition-property: height, box-shadow, margin-top, margin-left,
-    padding-bottom;
 }
-
 /* 
 STOP WORK EXPERIENCE SECTION
-1080 lines before
 */
 /*
 END CONTENT

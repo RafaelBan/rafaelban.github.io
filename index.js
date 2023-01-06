@@ -46,7 +46,7 @@ window.onload = function () {
 
   $(window).scroll(function () {
     var navBarHeight = getElementHeight($navBar);
-    if (isInViewport(document.getElementById("about-me"), navBarHeight)) {
+    if (isInViewport(document.getElementById("main-content"), navBarHeight)) {
       $navBar.style.bottom = "none";
       $navBar.style.top = "0";
     }
