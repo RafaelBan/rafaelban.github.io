@@ -381,10 +381,15 @@ START NAV BAR
   align-items: center;
   padding: 0px 10px;
   min-height: 95px;
-  height: 8vh;
   color: white;
   border-radius: 50px;
   cursor: pointer;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.nav-bar:has(.nav-bar-element:hover) .nav-bar-element:not(:hover) {
+  opacity: 0.5;
 }
 
 /* 

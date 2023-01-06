@@ -1,4 +1,4 @@
-function setArrowHeight() {
+const setArrowHeight = function () {
   var childLabels = document
     .getElementById("skills")
     .getElementsByTagName("label");
@@ -13,7 +13,7 @@ function setArrowHeight() {
       setArrowDesignMargin(skillSectionArrow, labelHeight / 2.2);
     }
   }
-}
+};
 
 const setArrowDesignMargin = function (parent, height) {
   var skillArrowDesign = parent.querySelector(".skill-arrow-design");
@@ -35,9 +35,9 @@ const getElementHeight = function (el) {
 window.addEventListener("resize", setArrowHeight);
 window.addEventListener("load", setArrowHeight);
 
-function scrollIntoSection(sectionName) {
+const scrollIntoSection = function (sectionName) {
   document.getElementById(sectionName).scrollIntoView();
-}
+};
 
 window.onload = function () {
   const $navBar = document.getElementById("nav-bar");
