@@ -253,6 +253,7 @@ START HELLO WORLD TEXT
 .toggle-switch:has(> .switch-input:checked)
   ~ .header-container
   .hello-world-name-container
+  .hello-world-container
   .hello-world-text {
   margin-top: 200px;
   transition: margin-top 0.5s 1.6s;
@@ -382,12 +383,14 @@ START NAV BAR
 */
 
 .nav-bar {
+  position: -webkit-sticky;
   position: sticky;
   display: flex;
   overflow: hidden;
   justify-content: center;
   z-index: 10;
   width: 100vw;
+  -moz-column-gap: 40px;
   column-gap: 40px;
   min-height: 0px;
   height: 0px;
@@ -395,6 +398,7 @@ START NAV BAR
   transform: translateY(110vh);
   visibility: 0;
   transition: transform 0.3s, min-height 0.3s, height 0.3s, visibility 0s 0.4s;
+  -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
 }
 
@@ -403,8 +407,7 @@ START NAV BAR
   min-height: 95px;
   height: 8vh;
   transform: translateX(0vh);
-  transition-delay: 2.8s;
-  transition-property: transform, height;
+  transition: transform 0s 2.8s, height 0s 2.8s;
 }
 
 .nav-bar .nav-bar-element {
@@ -417,11 +420,12 @@ START NAV BAR
   border-radius: 50px;
   cursor: pointer;
   opacity: 1;
-  transition: 0.3s;
+  transition: opacity 0.3s;
 }
 
 .nav-bar:has(.nav-bar-element:hover) .nav-bar-element:not(:hover) {
   opacity: 0.5;
+  transition: opacity 0.3s;
 }
 
 /* 
@@ -434,15 +438,15 @@ START CONTENT
   display: flex;
   flex-direction: column;
   opacity: 0;
+  gap: 0;
+  padding: 0;
 }
 
 .toggle-switch:has(> .switch-input:checked) ~ .main-content {
   opacity: 1;
   gap: 200px;
-  padding-top: 100px;
-  padding-left: 15vw;
-  padding-right: 15vw;
-  transition: all 0s, opacity 0.5s;
+  padding: 100px 15vw 0 15vw;
+  transition: padding 0s, opacity 0.5s;
 }
 /*
 START SECTION TITLE
@@ -511,8 +515,7 @@ START COFFEE CUP
   width: 500px;
   overflow: hidden;
   z-index: 9;
-  transition: 0.5s;
-  transition-property: padding-left;
+  transition: padding-left 0.5s;
 }
 
 .about-me-section .coffee-container .cup .cup-body {
@@ -529,7 +532,6 @@ START COFFEE CUP
   z-index: 1;
   transform: perspective(10px) rotateX(0deg);
   transition: transform 0s, max-height 0.4s, margin-top 0.4s;
-  transition-property: transform max-height margin-top;
 }
 
 .about-me-section .coffee-container .cup .cup-margin-shape {
@@ -543,8 +545,8 @@ START COFFEE CUP
   margin-left: 100px;
   border-radius: 50%;
   z-index: 5;
-  transition: 0.3s;
-  transition-property: height max-height max-width width margin-top margin-left;
+  transition: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
+    margin-top 0.3s, margin-left 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-black-shape {
@@ -559,8 +561,8 @@ START COFFEE CUP
   margin-left: 110px;
   border-radius: 50%;
   z-index: 5;
-  transition: 0.3s;
-  transition-property: height max-height max-width width margin-left;
+  transition: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
+    margin-left 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-black-shape .coffee {
@@ -575,7 +577,8 @@ START COFFEE CUP
   border-radius: 50%;
   z-index: 6;
   transition: 0.3s;
-  transition-property: height max-height max-width width margin-top margin-left;
+  transition-property: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
+    margin-left 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-black-shape .coffee .coffee-text {
@@ -585,8 +588,7 @@ START COFFEE CUP
   padding-top: 0px;
   margin-left: 0px;
   transform: perspective(400px) rotateX(50deg) rotateZ(-1deg);
-  transition: 0.3s;
-  transition-property: margin-left transform;
+  transition: margin-left 0.3s, transform 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-black-shape .coffee .joke-text {
@@ -594,8 +596,6 @@ START COFFEE CUP
   color: #e4cbb6;
   opacity: 0;
   text-align: center;
-  transition: 0s;
-  transition-property: opacity;
 }
 
 .about-me-section .coffee-container .cup-handle {
@@ -611,11 +611,9 @@ START COFFEE CUP
   margin-top: 125px;
   margin-left: 15px;
   z-index: 0;
+  transform: perspective(400px) rotateX(0deg) rotateZ(1deg);
   transition: margin-left 0.3s, transform 0.3s, border-left 0.2s,
     border-top 0.3s, border-right 0.3s, border-bottom 0.3s, margin-top 0.3s;
-  transform: perspective(400px) rotateX(0deg) rotateZ(1deg);
-  transition-property: margin-left transform border-left border-top border-right
-    border-bottom margin-top;
 }
 
 /* 
@@ -626,9 +624,7 @@ START COFFEE CUP ANIMATION
   max-height: 0px;
   margin-top: 260px;
   transform: perspective(10px) rotateX(-6deg);
-  transition: transform 1s, max-height 0.5s, margin-top 0.5s;
-  transition-property: transform max-height margin-top;
-  transition-delay: 0.03s;
+  transition: transform 1s 0.03s, max-height 0.5s 0.03s, margin-top 0.5s 0.03s;
 }
 
 .about-me-section .coffee-container .cup:hover ~ .cup-handle {
@@ -639,11 +635,9 @@ START COFFEE CUP ANIMATION
   border-left: 200px solid #b9b9b9;
   margin-left: -110px;
   margin-top: 90px;
-  transition: margin-left 0.4s, transform 0.5s, border-top 0.5s,
-    border-bottom 0.5s, border-left 0.4s, border-right 0.5s, margin-top 0.5s;
-  transition-property: margin-left transform border-top border-bottom
-    border-left border-right margin-top;
-  transition-delay: 0.1s, 0s, 0s, 0s, 0.1s, 0s, 0s;
+  transition: margin-left 0.4s 0.1s, transform 0.5s 0s, border-top 0.5s 0s,
+    border-bottom 0.5s 0s, border-left 0.4s 0.1s, border-right 0.5s 0s,
+    margin-top 0.5s 0s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-margin-shape {
@@ -652,8 +646,8 @@ START COFFEE CUP ANIMATION
   height: 450px;
   max-width: 450px;
   width: 450px;
-  transition: 0.5s;
-  transition-property: max-height height max-width width margin-left;
+  transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
+    margin-left 0.5s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-black-shape {
@@ -662,8 +656,8 @@ START COFFEE CUP ANIMATION
   height: 430px;
   max-width: 430px;
   width: 430px;
-  transition: 0.5s;
-  transition-property: max-height height max-width width margin-left;
+  transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
+    margin-left 0.5s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-black-shape .coffee {
@@ -673,8 +667,8 @@ START COFFEE CUP ANIMATION
   height: 430px;
   max-width: 430px;
   width: 430px;
-  transition: 0.5s;
-  transition-property: max-height height max-width width margin-left margin-top;
+  transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
+    margin-left 0.5s, margin-top 0.5s;
 }
 
 .about-me-section
@@ -689,8 +683,7 @@ START COFFEE CUP ANIMATION
   transform: perspective(400px) rotateX(0deg);
   opacity: 0;
   transition: margin-left 0.5s, margin-top 0.5s, transform 0.5s,
-    opacity 0.5s linear 0.5s, font-size 0.5s;
-  transition-property: margin-left margin-top transform opacity font-size;
+    opacity 0.5s 0.5s, font-size 0.5s;
 }
 
 .about-me-section
@@ -703,9 +696,8 @@ START COFFEE CUP ANIMATION
   margin-top: -140px;
   opacity: 1;
   font-size: 18px;
-  transition: margin-left 0s, margin-top 0s, opacity 0.5s linear 0.5s;
-  transition-property: margin-left margin-top font-size opacity;
-  transition-delay: 1s;
+  transition: margin-left 0s 1s, margin-top 0s 1s, opacity 0.5s 0.5s,
+    font-size 0s 1s;
 }
 
 /* 
@@ -775,8 +767,7 @@ START SKILLS SECTION
   margin-left: 50px;
   font-size: 30px;
   color: var(--light);
-  transition: 0.5s;
-  transition-property: color;
+  transition: color 0.5s;
 }
 
 .skills-section .skill-category-container:hover .skill-section-title {
@@ -789,9 +780,7 @@ START SKILLS SECTION
   width: 300px;
   height: 250px;
   font-size: 0px;
-  transition: 0.3s;
-  transition-property: width, font-size;
-  transition-delay: 0s, 0s;
+  transition: width 0.3s, font-size 0.3s;
 }
 
 .skills-section
@@ -843,8 +832,7 @@ START SKILLS SECTION
   stroke-dasharray: 500;
   stroke-dashoffset: 165;
   stroke-linecap: round;
-  transition: 0.5s;
-  transition-property: stroke;
+  transition: stroke 0.5s;
 }
 
 .skills-section
@@ -917,8 +905,7 @@ START SKILLS SECTION
   position: absolute;
   font-size: 14px;
   color: var(--light);
-  transition: 0.5s;
-  transition-property: color;
+  transition: color 0.5s;
 }
 
 .skills-section
@@ -927,8 +914,7 @@ START SKILLS SECTION
   .skill-container
   .skill-text {
   color: var(--dark);
-  transition: 0.5s;
-  transition-property: color;
+  transition: color 0.5s;
 }
 
 .skills-section .skill-category-container .skill-hover-info {
