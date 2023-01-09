@@ -407,7 +407,7 @@ START NAV BAR
   min-height: 95px;
   height: 8vh;
   transform: translateX(0vh);
-  transition: transform 0s 2.8s, height 0s 2.8s;
+  transition: transform 0.3s 2.8s, height 0s 2.8s;
 }
 
 .nav-bar .nav-bar-element {
@@ -456,7 +456,7 @@ START SECTION TITLE
   justify-content: center;
   align-items: center;
   width: 430px;
-  height: 140px;
+  height: 80px;
 }
 
 .section-title-container .text {
@@ -495,6 +495,7 @@ START ABOUT ME SECTION
   align-items: center;
   flex-wrap: wrap;
   padding-top: 50px;
+  gap: 50px;
 }
 
 /* 
@@ -504,15 +505,14 @@ START COFFEE CUP
 .about-me-section .coffee-container {
   display: inline-block;
   overflow: hidden;
-  width: 630px;
-  height: 500px;
-  padding-left: 150px;
+  width: 400px;
+  height: 400px;
 }
 
 .about-me-section .coffee-container .cup {
   position: absolute;
-  height: 550px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
   overflow: hidden;
   z-index: 9;
   transition: padding-left 0.5s;
@@ -522,16 +522,16 @@ START COFFEE CUP
   position: absolute;
   overflow: hidden;
   max-height: 350px;
-  height: 350px;
+  height: 300px;
   width: 300px;
   background-image: linear-gradient(to right, #b9b9b9, #ffffff);
-  margin-left: 100px;
+  margin-left: 50px;
   margin-top: 75px;
   border-bottom-left-radius: 100%50%;
   border-bottom-right-radius: 100%50%;
   z-index: 1;
   transform: perspective(10px) rotateX(0deg);
-  transition: transform 0s, max-height 0.4s, margin-top 0.4s;
+  transition: transform 0s, max-height 0.4s, margin-top 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-margin-shape {
@@ -542,7 +542,7 @@ START COFFEE CUP
   width: 300px;
   background-image: linear-gradient(to right, #b9b9b9, #ffffff);
   margin-top: 0px;
-  margin-left: 100px;
+  margin-left: 50px;
   border-radius: 50%;
   z-index: 5;
   transition: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
@@ -558,7 +558,7 @@ START COFFEE CUP
   width: 280px;
   background-image: linear-gradient(to left, #151515 70%, #353535);
   margin-top: 10px;
-  margin-left: 110px;
+  margin-left: 60px;
   border-radius: 50%;
   z-index: 5;
   transition: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
@@ -576,19 +576,20 @@ START COFFEE CUP
   margin-left: 0;
   border-radius: 50%;
   z-index: 6;
-  transition: 0.3s;
-  transition-property: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
-    margin-left 0.3s;
+  transition: max-height 0.3s, height 0.3s, max-width 0.3s, width 0.3s,
+    margin-left 0.3s, margin-top 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-black-shape .coffee .coffee-text {
+  opacity: 1;
   font-size: 110px;
   color: #e4cbb6;
   padding-left: 15px;
-  padding-top: 0px;
+  margin-top: 0px;
   margin-left: 0px;
   transform: perspective(400px) rotateX(50deg) rotateZ(-1deg);
-  transition: margin-left 0.3s, transform 0.3s;
+  transition: margin-left 0.3s, margin-top 0.3s, transform 0.3s, font-size 0.3s,
+    opacity 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-black-shape .coffee .joke-text {
@@ -596,24 +597,7 @@ START COFFEE CUP
   color: #e4cbb6;
   opacity: 0;
   text-align: center;
-}
-
-.about-me-section .coffee-container .cup-handle {
-  position: absolute;
-  max-width: 80px;
-  height: 150px;
-  width: 80px;
-  border-radius: 150px;
-  border-right: 25px solid #b9b9b9;
-  border-bottom: 25px solid #b9b9b9;
-  border-top: 25px solid #b9b9b9;
-  border-left: 25px solid #b9b9b9;
-  margin-top: 125px;
-  margin-left: 15px;
-  z-index: 0;
-  transform: perspective(400px) rotateX(0deg) rotateZ(1deg);
-  transition: margin-left 0.3s, transform 0.3s, border-left 0.2s,
-    border-top 0.3s, border-right 0.3s, border-bottom 0.3s, margin-top 0.3s;
+  transition: opacity 0.5s;
 }
 
 /* 
@@ -622,51 +606,38 @@ START COFFEE CUP ANIMATION
 
 .about-me-section .coffee-container .cup:hover .cup-body {
   max-height: 0px;
-  margin-top: 260px;
+  margin-top: 240px;
   transform: perspective(10px) rotateX(-6deg);
-  transition: transform 1s 0.03s, max-height 0.5s 0.03s, margin-top 0.5s 0.03s;
-}
-
-.about-me-section .coffee-container .cup:hover ~ .cup-handle {
-  transform: perspective(400px) rotateX(-85deg) rotateZ(-30deg);
-  border-right: 60px solid #b9b9b9;
-  border-bottom: 60px solid #b9b9b9;
-  border-top: 60px solid #b9b9b9;
-  border-left: 200px solid #b9b9b9;
-  margin-left: -110px;
-  margin-top: 90px;
-  transition: margin-left 0.4s 0.1s, transform 0.5s 0s, border-top 0.5s 0s,
-    border-bottom 0.5s 0s, border-left 0.4s 0.1s, border-right 0.5s 0s,
-    margin-top 0.5s 0s;
+  transition: transform 0.7s 0.1s, max-height 0.5s 0.03s, margin-top 0.5s 0.03s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-margin-shape {
-  max-height: 450px;
-  margin-left: 20px;
-  height: 450px;
-  max-width: 450px;
-  width: 450px;
+  max-height: 400px;
+  margin-left: 0px;
+  height: 400px;
+  max-width: 400px;
+  width: 400px;
   transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
     margin-left 0.5s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-black-shape {
-  max-height: 430px;
-  margin-left: 30px;
-  height: 430px;
-  max-width: 430px;
-  width: 430px;
+  max-height: 380px;
+  margin-left: 10px;
+  height: 380px;
+  max-width: 380px;
+  width: 380px;
   transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
     margin-left 0.5s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-black-shape .coffee {
-  max-height: 430px;
+  max-height: 380px;
   margin-left: 0px;
   margin-top: 0px;
-  height: 430px;
-  max-width: 430px;
-  width: 430px;
+  height: 380px;
+  max-width: 380px;
+  width: 380px;
   transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
     margin-left 0.5s, margin-top 0.5s;
 }
@@ -677,9 +648,9 @@ START COFFEE CUP ANIMATION
   .cup-black-shape
   .coffee
   .coffee-text {
-  font-size: 170px;
-  margin-left: 10px;
-  margin-top: 130px;
+  font-size: 140px;
+  margin-left: 15px;
+  margin-top: 110px;
   transform: perspective(400px) rotateX(0deg);
   opacity: 0;
   transition: margin-left 0.5s, margin-top 0.5s, transform 0.5s,
@@ -693,10 +664,10 @@ START COFFEE CUP ANIMATION
   .coffee
   .joke-text {
   margin-left: 0px;
-  margin-top: -140px;
+  margin-top: -120px;
   opacity: 1;
   font-size: 18px;
-  transition: margin-left 0s 1s, margin-top 0s 1s, opacity 0.5s 0.5s,
+  transition: margin-left 0s 1s, margin-top 0s 1s, opacity 0.5s 1s,
     font-size 0s 1s;
 }
 
