@@ -1,25 +1,5 @@
-const setArrowHeight = function () {
-  var childLabels = document
-    .getElementById("skills")
-    .getElementsByTagName("label");
-
-  for (i = 0; i < childLabels.length; i++) {
-    var labelHeight = getElementHeight(childLabels[i]);
-    var skillSectionArrow = childLabels[i].querySelector(
-      ".skill-section-arrow"
-    );
-    if (skillSectionArrow) {
-      skillSectionArrow.style.height = labelHeight;
-      setArrowDesignMargin(skillSectionArrow, labelHeight / 2.2);
-    }
-  }
-};
-
-const setArrowDesignMargin = function (parent, height) {
-  var skillArrowDesign = parent.querySelector(".skill-arrow-design");
-  if (skillArrowDesign) {
-    skillArrowDesign.style.marginTop = height;
-  }
+const scrollIntoSection = function (sectionName) {
+  document.getElementById(sectionName).scrollIntoView(true);
 };
 
 const getElementHeight = function (el) {
@@ -32,14 +12,24 @@ const getElementHeight = function (el) {
   return elementHeight;
 };
 
-window.addEventListener("resize", setArrowHeight);
-window.addEventListener("load", setArrowHeight);
-
-const scrollIntoSection = function (sectionName) {
-  document.getElementById(sectionName).scrollIntoView();
-};
-
 window.onload = function () {
+  document
+    .querySelector("#portofolio-switch")
+    .addEventListener("change", function () {
+      var bodyElement = document.querySelector("body");
+      if (this.checked) {
+        document.querySelector(".big-hello-world span").textContent =
+          "hello world";
+        setTimeout(function () {
+          bodyElement.style.overflowY = "scroll";
+        }, 3200);
+      } else {
+        bodyElement.style.overflowY = "hidden";
+        scrollIntoSection("header-container");
+        document.querySelector(".big-hello-world span").textContent = "bye.";
+      }
+    });
+
   const $navBar = document.getElementById("nav-bar");
   const $bigBall = document.getElementById("cursor-ball-big");
   const $smallBall = document.getElementById("cursor-ball-small");
@@ -72,4 +62,7 @@ window.onload = function () {
   };
 
   window.addEventListener("mousemove", onMouseMove);
+  setTimeout(function () {
+    scrollIntoSection("header-container");
+  }, 100);
 };

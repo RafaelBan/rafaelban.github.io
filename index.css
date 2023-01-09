@@ -27,14 +27,11 @@
 
 body {
   background-color: var(--dark);
+  color: white;
   margin: 0px;
   font-family: "Comfortaa", sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
-}
-
-body:has(.toggle-switch > .switch-input:checked) {
-  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -95,7 +92,6 @@ START SWITCH
   height: 55px;
   border-radius: 50px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .toggle-switch .switch-background .outter-switch {
@@ -107,7 +103,7 @@ START SWITCH
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
   border-radius: 50px;
   background-color: var(--light);
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
 
 .toggle-switch .switch-input:checked ~ .switch-background .outter-switch {
@@ -121,7 +117,7 @@ START SWITCH
   border-radius: 50px;
   background-color: #383838;
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
 
 .toggle-switch .switch-input:checked ~ .switch-background .slider {
@@ -137,7 +133,7 @@ START SWITCH
   border-radius: 50%;
   box-shadow: inset 3px 0px 10px -2px rgba(255, 255, 255, 0.9);
   background-color: black;
-  transition: 0.3s;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .toggle-switch .switch-input:checked ~ .switch-background .slider::before {
@@ -185,21 +181,51 @@ START HELLO WORLD TEXT
 .header-container {
   position: relative;
   display: flex;
-  width: 100vw;
-  opacity: 0;
-  transition: 0.5s;
-  transition-delay: 0.5s;
-}
-
-.toggle-switch:has(> .switch-input:checked) ~ .header-container {
-  opacity: 1;
   background: linear-gradient(
     180deg,
     var(--secondary-background) 65%,
     var(--dark) 100%
   );
+  width: 100vw;
+  opacity: 0;
+  min-height: 0;
+  height: 0;
+  transition: opacity 0.5s 1s, min-height 0s 1.5s, height 0s 1.5s;
+}
+
+.toggle-switch:has(> .switch-input:checked) ~ .header-container {
+  opacity: 1;
   min-height: 300px;
   height: 80vh;
+  transition: opacity 0.5s, min-height 0s, height 0s;
+}
+
+.header-container .big-hello-world {
+  position: absolute;
+  color: white;
+  overflow: hidden;
+  left: 50%;
+  top: 65%;
+  height: 6vw;
+  transform: translate(-50%, -50%);
+}
+
+.header-container .big-hello-world span {
+  display: inline-block;
+  font-size: 6vw;
+  letter-spacing: 5rem;
+  white-space: nowrap;
+  margin-right: -5rem;
+  margin-top: 0px;
+  transition: margin-top 0.5s;
+}
+
+.toggle-switch:has(> .switch-input:checked)
+  ~ .header-container
+  .big-hello-world
+  span {
+  margin-top: 7vw;
+  transition: margin-top 0.5s 1.5s;
 }
 
 .header-container .hello-world-name-container {
@@ -207,21 +233,29 @@ START HELLO WORLD TEXT
   flex-direction: column;
 }
 
-.header-container .hello-world-text {
-  color: white;
-  margin-top: 220px;
+.header-container .hello-world-name-container .hello-world-container {
+  min-height: 220px;
+  height: 220px;
+  overflow: hidden;
+}
+
+.header-container
+  .hello-world-name-container
+  .hello-world-container
+  .hello-world-text {
+  display: inline-block;
   margin-left: 100px;
-  visibility: hidden;
-  opacity: 0;
-  transition: 1s;
+  margin-top: 250px;
+  white-space: nowrap;
+  letter-spacing: 1rem;
 }
 
 .toggle-switch:has(> .switch-input:checked)
   ~ .header-container
+  .hello-world-name-container
   .hello-world-text {
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0.5s;
+  margin-top: 200px;
+  transition: margin-top 0.5s 1.6s;
 }
 
 /* 
@@ -230,21 +264,22 @@ END HELLO WORLD TEXT
 /* 
 START MY NAME, POSITION AND PHOTO
 */
-.header-container .my-name-text {
+.header-container .hello-world-name-container .my-name-text {
   width: 500px;
   margin-top: 1rem;
-  margin-left: 40px;
+  margin-right: 50px;
   color: white;
   font-size: 120px;
-  visibility: hidden;
   transform: translateX(-550px);
-  transition: 0.3s;
+  transition: transform 0.3s;
 }
 
-.toggle-switch:has(> .switch-input:checked) ~ .header-container .my-name-text {
-  visibility: visible;
-  transform: translateX(0px);
-  transition-delay: 0.5s;
+.toggle-switch:has(> .switch-input:checked)
+  ~ .header-container
+  .hello-world-name-container
+  .my-name-text {
+  transform: translateX(40px);
+  transition: transform 0.3s 2s;
 }
 
 .header-container .current-position {
@@ -252,24 +287,21 @@ START MY NAME, POSITION AND PHOTO
   color: white;
   font-size: 30px;
   margin-left: 30px;
-  visibility: hidden;
-  transform: translateY(-550px);
-  transition: 0.3s;
+  transform: translateY(-600px);
+  transition: transform 0.3s;
 }
 
 .toggle-switch:has(> .switch-input:checked)
   ~ .header-container
   .current-position {
-  visibility: visible;
   transform: translateY(80px);
-  transition-delay: 0.5s;
+  transition: transform 0.3s 2.3s;
 }
 
 .header-container .photo-carousel {
-  margin-top: -800px;
+  margin-top: 120px;
   margin-left: auto;
   margin-right: 50px;
-  visibility: hidden;
   width: 100%;
   height: 100%;
   max-width: 800px;
@@ -279,16 +311,15 @@ START MY NAME, POSITION AND PHOTO
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  transform: translateY(0px);
-  transition: 0.3s;
+  transform: translateX(calc(100vh + 650px));
+  transition: transform 0.3s;
 }
 
 .toggle-switch:has(> .switch-input:checked)
   ~ .header-container
   .photo-carousel {
-  visibility: visible;
-  transform: translateY(925px);
-  transition-delay: 0.5s;
+  transform: translateX(0px);
+  transition: transform 0.3s 2.6s;
 }
 
 .header-container .photo-carousel .photo-cards {
@@ -353,6 +384,7 @@ START NAV BAR
 .nav-bar {
   position: sticky;
   display: flex;
+  overflow: hidden;
   justify-content: center;
   z-index: 10;
   width: 100vw;
@@ -360,18 +392,18 @@ START NAV BAR
   min-height: 0px;
   height: 0px;
   bottom: 0;
-  margin-left: -1900px;
-  visibility: hidden;
-  transition: 0.3s;
+  transform: translateY(110vh);
+  visibility: 0;
+  transition: transform 0.3s, min-height 0.3s, height 0.3s, visibility 0s 0.4s;
   backdrop-filter: blur(50px);
 }
 
 .toggle-switch:has(> .switch-input:checked) ~ .nav-bar {
-  visibility: visible;
+  visibility: 1;
   min-height: 95px;
   height: 8vh;
-  transform: translateX(1890px);
-  transition-delay: 0.5s;
+  transform: translateX(0vh);
+  transition-delay: 2.8s;
   transition-property: transform, height;
 }
 
@@ -410,7 +442,7 @@ START CONTENT
   padding-top: 100px;
   padding-left: 15vw;
   padding-right: 15vw;
-  transition: all 0s, opacity 0.5ssssssssssssss;
+  transition: all 0s, opacity 0.5s;
 }
 /*
 START SECTION TITLE
