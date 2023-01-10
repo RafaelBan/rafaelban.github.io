@@ -233,30 +233,81 @@ START HELLO WORLD TEXT
   flex-direction: column;
 }
 
-.header-container .hello-world-name-container .hello-world-container {
+.header-container .hello-world-name-container .links-container {
+  display: flex;
+  overflow: hidden;
   min-height: 220px;
   height: 220px;
-  overflow: hidden;
+  margin-left: 100px;
+  gap: 10px;
 }
 
-.header-container
-  .hello-world-name-container
-  .hello-world-container
-  .hello-world-text {
-  display: inline-block;
-  margin-left: 100px;
+.header-container .hello-world-name-container .links-container a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 250px;
-  white-space: nowrap;
-  letter-spacing: 1rem;
+  width: 48px;
+  height: 48px;
 }
 
 .toggle-switch:has(> .switch-input:checked)
   ~ .header-container
   .hello-world-name-container
-  .hello-world-container
-  .hello-world-text {
-  margin-top: 200px;
+  .links-container
+  a {
+  margin-top: 173px;
   transition: margin-top 0.5s 1.6s;
+}
+
+.header-container .hello-world-name-container .links-container a svg {
+  margin-bottom: 0px;
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: var(--light);
+  stroke-width: 1;
+  stroke-miterlimit: 10;
+  transition: margin-bottom 0.3s;
+}
+
+.header-container .hello-world-name-container .links-container a:hover svg {
+  margin-bottom: 10px;
+  transition: margin-bottom 0.3s;
+}
+
+.header-container
+  .hello-world-name-container
+  .links-container
+  .mail-link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border: 1px solid var(--light);
+  border-radius: 100px;
+  width: 170px;
+  height: 25px;
+  margin-top: 250px;
+  margin-bottom: 0px;
+}
+
+.header-container
+  .hello-world-name-container
+  .links-container
+  .mail-link-container:hover {
+  background-color: var(--light);
+  color: var(--secondary-color);
+}
+
+.toggle-switch:has(> .switch-input:checked)
+  ~ .header-container
+  .hello-world-name-container
+  .links-container
+  .mail-link-container {
+  margin-top: 184px;
+  transition: margin-top 0.5s 1.6s, background-color 0.5s, color 0.5s;
 }
 
 /* 
@@ -684,7 +735,7 @@ START PERSONAL DESCRIPTION
 .about-me-section .personal-description {
   display: inline-block;
   font-size: 25px;
-  width: 60vw;
+  width: 68vw;
   vertical-align: top;
 }
 
@@ -895,19 +946,19 @@ START SKILLS SECTION
   flex-direction: column;
   gap: 100px;
   font-size: 12px;
-  width: 90px;
+  width: 20px;
 }
 
 .skills-section .skill-category-container .current-skill {
   color: var(--light);
   width: 100px;
-  transform: rotate(-90deg) translateY(15px);
+  transform: rotate(-90deg) translateY(-10px);
 }
 
 .skills-section .skill-category-container .skill-to-gain {
   color: var(--dark);
   width: 100px;
-  transform: rotate(-90deg) translateY(15px);
+  transform: rotate(-90deg) translateY(-10px);
 }
 
 /* 
