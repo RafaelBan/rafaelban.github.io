@@ -31,9 +31,10 @@ body {
   flex-wrap: wrap;
   background: linear-gradient(
     180deg,
-    var(--secondary-background) 10%,
-    var(--dark) 25%,
-    var(--dark) 100%
+    var(--secondary-background) 5%,
+    var(--dark) 13%,
+    var(--dark) 87%,
+    var(--secondary-background) 100%
   );
   color: white;
   margin: 0px;
@@ -394,7 +395,7 @@ START CONTENT
   opacity: 0;
   gap: 200px;
   padding: 100px 15vw 0 15vw;
-  animation: main-content 0.3s 3.7s forwards;
+  animation: main-content 0.3s 2.7s forwards;
 }
 
 @keyframes main-content {
@@ -660,6 +661,10 @@ START SKILLS SECTION
   padding-top: 100px;
 }
 
+.skills-section .skills-section-title {
+  margin-left: 150px;
+}
+
 .skills-section .skill-category-container {
   display: flex;
   background-color: var(--dark);
@@ -878,12 +883,14 @@ START WORK EXPERIENCE SECTION
 }
 
 .work-experience-section .work-experience-title {
+  margin-left: 150px;
   height: 200px;
 }
 
 .work-experience-section .work-experience-container {
   display: flex;
   flex-direction: column;
+  margin-left: 50px;
   gap: 50px;
 }
 
@@ -967,6 +974,7 @@ START PROJECTS SECTION
 }
 
 .projects-section .projects-section-title {
+  margin-left: 200px;
   height: 150px;
 }
 
@@ -1051,12 +1059,134 @@ START CONTACT SECTION
 .contact-section {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
   padding-top: 100px;
+}
+
+.contact-section .contact-section-title {
+  width: 330px;
+}
+
+.contact-section .contact-button-container {
+  display: flex;
+}
+
+.contact-section .contact-button-container .contact-button {
+  height: 150px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid var(--light);
+  border-radius: 30px;
+  text-align: center;
+}
+
+.contact-section .contact-button-container .contact-button .message-version {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  height: 150px;
+  background-color: var(--light);
+  color: var(--dark);
+  font-size: 30px;
+  transition: transform 0.5s;
+}
+
+.contact-section
+  .contact-button-container
+  .contact-button:hover
+  .message-version {
+  transform: translateY(-155px);
+}
+
+.contact-section
+  .contact-button-container
+  .contact-button
+  .message-version
+  span {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.contact-section .contact-button-container .contact-button .mail-version {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  height: 150px;
+  background-color: var(--dark);
+  color: var(--light);
+  font-size: 30px;
+  transition: transform 0.5s;
+}
+
+.contact-section .contact-button-container .contact-button:hover .mail-version {
+  transform: translateY(-150px);
+}
+
+.contact-section .contact-button-container .contact-button .mail-version span {
+  padding-left: 50px;
+  padding-right: 50px;
+  word-break: break-all;
 }
 /*
 END CONTACT SECTION
 */
 /*
 END CONTENT
+*/
+/*
+START FOOTER
+*/
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  padding-bottom: 50px;
+}
+
+.footer-section .footer-links-container {
+  display: flex;
+  overflow: hidden;
+  min-height: 64px;
+  height: 64px;
+  gap: 10px;
+}
+
+.footer-section .footer-links-container a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+}
+
+.footer-section .footer-links-container a svg {
+  margin-bottom: 0px;
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: var(--light);
+  stroke-width: 1;
+  stroke-miterlimit: 10;
+  transition: margin-bottom 0.3s;
+}
+
+.footer-section .footer-links-container a:hover svg {
+  margin-bottom: 10px;
+  transition: margin-bottom 0.3s;
+}
+
+.footer-section .copyright-text-container {
+  font-size: 12px;
+  opacity: 0.6;
+}
+/*
+END FOOTER
 */
