@@ -26,7 +26,15 @@
 }
 
 body {
-  background-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    180deg,
+    var(--secondary-background) 10%,
+    var(--dark) 25%,
+    var(--dark) 100%
+  );
   color: white;
   margin: 0px;
   font-family: "Comfortaa", sans-serif;
@@ -71,108 +79,55 @@ START CURSOR
 END CURSOR
 */
 /* 
-START SWITCH
+START NAV BAR
 */
 
-.toggle-switch {
-  position: absolute;
-  z-index: 1;
-  margin-left: 160px;
-  margin-top: 100px;
+.nav-bar {
+  position: sticky;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  z-index: 10;
+  width: 100vw;
+  -moz-column-gap: 40px;
+  column-gap: 40px;
+  min-height: 95px;
+  height: 8vh;
+  top: 0;
+  transform: translateY(-100vh);
+  visibility: 0;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  animation: nav-bar 0.3s 3.4s forwards;
 }
 
-.toggle-switch .switch-input {
-  position: absolute;
-  display: none;
+@keyframes nav-bar {
+  100% {
+    transform: translateX(0vh);
+    visibility: 1;
+  }
 }
 
-.toggle-switch .switch-background {
-  position: absolute;
-  width: 125px;
-  height: 55px;
+.nav-bar .nav-bar-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  min-height: 95px;
+  color: white;
   border-radius: 50px;
   cursor: pointer;
-}
-
-.toggle-switch .switch-background .outter-switch {
-  position: absolute;
-  width: 150px;
-  height: 80px;
-  margin-left: -12px;
-  margin-top: -12px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
-  border-radius: 50px;
-  background-color: var(--light);
-  transition: background-color 0.3s;
-}
-
-.toggle-switch .switch-input:checked ~ .switch-background .outter-switch {
-  background-color: var(--dark);
-}
-
-.toggle-switch .switch-background .slider {
-  position: absolute;
-  width: 125px;
-  height: 55px;
-  border-radius: 50px;
-  background-color: #383838;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.9);
-  transition: background-color 0.3s;
-}
-
-.toggle-switch .switch-input:checked ~ .switch-background .slider {
-  background-color: var(--light);
-}
-
-.toggle-switch .switch-background .slider::before {
-  content: "";
-  position: absolute;
-  left: 71px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  box-shadow: inset 3px 0px 10px -2px rgba(255, 255, 255, 0.9);
-  background-color: black;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.toggle-switch .switch-input:checked ~ .switch-background .slider::before {
-  transform: translateX(-70px);
-  background-color: var(--light);
-  box-shadow: inset -3px 0px 10px rgba(0, 0, 0, 0.9);
-}
-
-.toggle-switch .switch-background .portofolio-text {
-  color: var(--light);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 29px;
-  left: 35px;
-  font-size: 9px;
-  transition: visibility 0s, opacity 1s linear;
-}
-
-.toggle-switch .switch-input:checked ~ .switch-background .portofolio-text {
-  opacity: 0;
-}
-
-.toggle-switch .switch-background .hello-text {
-  color: var(--dark);
-  position: absolute;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  top: 29px;
-  left: 87px;
-  font-size: 20px;
-  transition: visibility 0s, opacity 1s linear;
-}
-
-.toggle-switch .switch-input:checked ~ .switch-background .hello-text {
   opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.nav-bar:has(.nav-bar-element:hover) .nav-bar-element:not(:hover) {
+  opacity: 0.5;
+  transition: opacity 0.3s;
 }
 
 /* 
-END SWITCH
+STOP NAV BAR
 */
 /* 
 START HELLO WORLD TEXT
@@ -181,23 +136,19 @@ START HELLO WORLD TEXT
 .header-container {
   position: relative;
   display: flex;
-  background: linear-gradient(
-    180deg,
-    var(--secondary-background) 65%,
-    var(--dark) 100%
-  );
+  column-gap: 20vw;
+  justify-content: center;
   width: 100vw;
   opacity: 0;
-  min-height: 0;
-  height: 0;
-  transition: opacity 0.5s 1s, min-height 0s 1.5s, height 0s 1.5s;
+  min-height: 600px;
+  height: 92vh;
+  animation: header-container 1.5s forwards;
 }
 
-.toggle-switch:has(> .switch-input:checked) ~ .header-container {
-  opacity: 1;
-  min-height: 300px;
-  height: 80vh;
-  transition: opacity 0.5s, min-height 0s, height 0s;
+@keyframes header-container {
+  100% {
+    opacity: 1;
+  }
 }
 
 .header-container .big-hello-world {
@@ -205,7 +156,7 @@ START HELLO WORLD TEXT
   color: white;
   overflow: hidden;
   left: 50%;
-  top: 65%;
+  top: 45%;
   height: 6vw;
   transform: translate(-50%, -50%);
 }
@@ -217,28 +168,29 @@ START HELLO WORLD TEXT
   white-space: nowrap;
   margin-right: -5rem;
   margin-top: 0px;
-  transition: margin-top 0.5s;
+  animation: big-hello-world 0.5s 2s forwards;
 }
 
-.toggle-switch:has(> .switch-input:checked)
-  ~ .header-container
-  .big-hello-world
-  span {
-  margin-top: 7vw;
-  transition: margin-top 0.5s 1.5s;
+@keyframes big-hello-world {
+  100% {
+    margin-top: 7vw;
+  }
 }
 
 .header-container .hello-world-name-container {
+  position: relative;
   display: flex;
   flex-direction: column;
+  width: 550px;
+  min-width: 550px;
 }
 
 .header-container .hello-world-name-container .links-container {
   display: flex;
   overflow: hidden;
-  min-height: 220px;
-  height: 220px;
-  margin-left: 100px;
+  min-height: 180px;
+  height: 180px;
+  margin-left: 45px;
   gap: 10px;
 }
 
@@ -247,18 +199,16 @@ START HELLO WORLD TEXT
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 250px;
+  margin-top: 190px;
   width: 48px;
   height: 48px;
+  animation: links-container-a 0.5s 2.2s forwards;
 }
 
-.toggle-switch:has(> .switch-input:checked)
-  ~ .header-container
-  .hello-world-name-container
-  .links-container
-  a {
-  margin-top: 173px;
-  transition: margin-top 0.5s 1.6s;
+@keyframes links-container-a {
+  100% {
+    margin-top: 133px;
+  }
 }
 
 .header-container .hello-world-name-container .links-container a svg {
@@ -289,8 +239,10 @@ START HELLO WORLD TEXT
   border-radius: 100px;
   width: 170px;
   height: 25px;
-  margin-top: 250px;
+  margin-top: 190px;
   margin-bottom: 0px;
+  transition: background-color 0.5s, color 0.5s;
+  animation: links-container-mail 0.5s 2.2s forwards;
 }
 
 .header-container
@@ -301,13 +253,10 @@ START HELLO WORLD TEXT
   color: var(--secondary-color);
 }
 
-.toggle-switch:has(> .switch-input:checked)
-  ~ .header-container
-  .hello-world-name-container
-  .links-container
-  .mail-link-container {
-  margin-top: 184px;
-  transition: margin-top 0.5s 1.6s, background-color 0.5s, color 0.5s;
+@keyframes links-container-mail {
+  100% {
+    margin-top: 144px;
+  }
 }
 
 /* 
@@ -322,60 +271,67 @@ START MY NAME, POSITION AND PHOTO
   margin-right: 50px;
   color: white;
   font-size: 120px;
-  transform: translateX(-550px);
-  transition: transform 0.3s;
+  transform: translateX(-100vw);
+  animation: my-name-text 0.3s 2.5s forwards;
 }
 
-.toggle-switch:has(> .switch-input:checked)
-  ~ .header-container
+@keyframes my-name-text {
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+.header-container .hello-world-name-container .current-position-container {
+  position: absolute;
+  transform: translateY(470px) translateX(360px);
+  overflow: hidden;
+}
+
+.header-container
   .hello-world-name-container
-  .my-name-text {
-  transform: translateX(40px);
-  transition: transform 0.3s 2s;
-}
-
-.header-container .current-position {
-  width: 30px;
-  color: white;
-  font-size: 30px;
-  margin-left: 30px;
-  transform: translateY(-600px);
-  transition: transform 0.3s;
-}
-
-.toggle-switch:has(> .switch-input:checked)
-  ~ .header-container
+  .current-position-container
   .current-position {
-  transform: translateY(80px);
-  transition: transform 0.3s 2.3s;
+  color: transparent;
+  font-size: 32px;
+  text-align: right;
+  -webkit-text-stroke: 0.5px var(--light);
+  white-space: nowrap;
+  transform: translateY(130px);
+  animation: current-position 0.3s 2.8s forwards;
+}
+
+@keyframes current-position {
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .header-container .photo-carousel {
-  margin-top: 120px;
-  margin-left: auto;
-  margin-right: 50px;
+  margin-top: 170px;
   width: 100%;
   height: 100%;
-  max-width: 800px;
-  max-height: 600px;
+  max-width: 500px;
+  max-height: 400px;
   transform-style: preserve-3d;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   transform: translateX(calc(100vh + 650px));
-  transition: transform 0.3s;
+  animation: photo-carousel 0.3s 3.1s forwards;
 }
 
-.toggle-switch:has(> .switch-input:checked)
-  ~ .header-container
-  .photo-carousel {
-  transform: translateX(0px);
-  transition: transform 0.3s 2.6s;
+@keyframes photo-carousel {
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 .header-container .photo-carousel .photo-cards {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   margin-bottom: 20px;
@@ -383,8 +339,8 @@ START MY NAME, POSITION AND PHOTO
 
 .header-container .photo-carousel .photo-cards .photo-card {
   position: absolute;
-  width: 60%;
-  height: 100%;
+  width: 300px;
+  height: 362px;
   left: 0;
   right: 0;
   margin: auto;
@@ -429,59 +385,6 @@ START MY NAME, POSITION AND PHOTO
 /* 
 STOP MY NAME, POSITION AND PHOTO
 */
-/* 
-START NAV BAR
-*/
-
-.nav-bar {
-  position: -webkit-sticky;
-  position: sticky;
-  display: flex;
-  overflow: hidden;
-  justify-content: center;
-  z-index: 10;
-  width: 100vw;
-  -moz-column-gap: 40px;
-  column-gap: 40px;
-  min-height: 0px;
-  height: 0px;
-  bottom: 0;
-  transform: translateY(110vh);
-  visibility: 0;
-  transition: transform 0.3s, min-height 0.3s, height 0.3s, visibility 0s 0.4s;
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
-}
-
-.toggle-switch:has(> .switch-input:checked) ~ .nav-bar {
-  visibility: 1;
-  min-height: 95px;
-  height: 8vh;
-  transform: translateX(0vh);
-  transition: transform 0.3s 2.8s, height 0s 2.8s;
-}
-
-.nav-bar .nav-bar-element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 10px;
-  min-height: 95px;
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity 0.3s;
-}
-
-.nav-bar:has(.nav-bar-element:hover) .nav-bar-element:not(:hover) {
-  opacity: 0.5;
-  transition: opacity 0.3s;
-}
-
-/* 
-STOP NAV BAR
-*/
 /*
 START CONTENT
 */
@@ -489,15 +392,15 @@ START CONTENT
   display: flex;
   flex-direction: column;
   opacity: 0;
-  gap: 0;
-  padding: 0;
-}
-
-.toggle-switch:has(> .switch-input:checked) ~ .main-content {
-  opacity: 1;
   gap: 200px;
   padding: 100px 15vw 0 15vw;
-  transition: padding 0s, opacity 0.5s;
+  animation: main-content 0.3s 3.7s forwards;
+}
+
+@keyframes main-content {
+  100% {
+    opacity: 1;
+  }
 }
 /*
 START SECTION TITLE

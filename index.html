@@ -13,7 +13,7 @@
 
     <title>Rafael-Valentin Ban</title>
   </head>
-  <body>
+  <body id="body">
     <div class="cursor">
       <div class="ball" id="cursor-ball-big">
         <svg height="30" width="30">
@@ -27,14 +27,24 @@
         </svg>
       </div>
     </div>
-    <div class="toggle-switch">
-      <input type="checkbox" class="switch-input" id="portofolio-switch" />
-      <label class="switch-background" for="portofolio-switch">
-        <span class="outter-switch"></span>
-        <span class="slider"></span>
-        <span class="portofolio-text">PORTFOLIO</span>
-        <span class="hello-text">H I</span>
-      </label>
+    <div id="nav-bar" class="nav-bar">
+      <div class="nav-bar-element" onclick="scrollIntoSection('body');">
+        // home
+      </div>
+      <div class="nav-bar-element" onclick="scrollIntoSection('main-content');">
+        // about me
+      </div>
+      <div class="nav-bar-element" onclick="scrollIntoSection('skills');">
+        // skills
+      </div>
+      <div
+        class="nav-bar-element"
+        onclick="scrollIntoSection('work-experience');"
+      >
+        // experience
+      </div>
+      <div class="nav-bar-element">// projects</div>
+      <div class="nav-bar-element">// contact</div>
     </div>
     <div id="header-container" class="header-container">
       <div class="big-hello-world">
@@ -82,11 +92,13 @@
           </a>
           <div class="mail-link-container">banrafael01@gmail.com</div>
         </div>
-        <span class="my-name-text">Rafael-Valentin Ban</span>
+        <span class="my-name-text">Rafael -Valentin Ban</span>
+        <div class="current-position-container">
+          <div class="current-position">
+            Junior<br />Software<br />Developer
+          </div>
+        </div>
       </div>
-      <span class="current-position"
-        >S o f t w a r e<br /><br />D e v e l o p e r</span
-      >
       <div class="photo-carousel">
         <input
           type="radio"
@@ -119,28 +131,6 @@
           </label>
         </div>
       </div>
-    </div>
-    <div id="nav-bar" class="nav-bar">
-      <div
-        class="nav-bar-element"
-        onclick="scrollIntoSection('header-container');"
-      >
-        // home
-      </div>
-      <div class="nav-bar-element" onclick="scrollIntoSection('main-content');">
-        // about me
-      </div>
-      <div class="nav-bar-element" onclick="scrollIntoSection('skills');">
-        // skills
-      </div>
-      <div
-        class="nav-bar-element"
-        onclick="scrollIntoSection('work-experience');"
-      >
-        // experience
-      </div>
-      <div class="nav-bar-element">// projects</div>
-      <div class="nav-bar-element">// contact</div>
     </div>
     <div class="main-content" id="main-content">
       <div id="about-me" class="about-me-section">

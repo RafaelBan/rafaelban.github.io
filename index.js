@@ -13,42 +13,14 @@ const getElementHeight = function (el) {
 };
 
 window.onload = function () {
-  document
-    .querySelector("#portofolio-switch")
-    .addEventListener("change", function () {
-      var bodyElement = document.querySelector("body");
-      if (this.checked) {
-        document.querySelector(".big-hello-world span").textContent =
-          "hello world";
-        setTimeout(function () {
-          bodyElement.style.overflowY = "scroll";
-        }, 3200);
-      } else {
-        bodyElement.style.overflowY = "hidden";
-        scrollIntoSection("header-container");
-        document.querySelector(".big-hello-world span").textContent = "bye.";
-      }
-    });
-
   const $navBar = document.getElementById("nav-bar");
   const $bigBall = document.getElementById("cursor-ball-big");
   const $smallBall = document.getElementById("cursor-ball-small");
 
-  $(window).scroll(function () {
-    var navBarHeight = getElementHeight($navBar);
-    if (isInViewport(document.getElementById("main-content"), navBarHeight)) {
-      $navBar.style.bottom = "none";
-      $navBar.style.top = "0";
-    }
-  });
-
-  const isInViewport = function (el, navBarHeight) {
-    var elementTop = el.offsetTop - navBarHeight;
-    var elementBottom = elementTop + el.offsetHeight;
-
-    var viewportTop = $(window).scrollTop();
-    return elementBottom > viewportTop && elementTop < viewportTop;
-  };
+  setTimeout(function () {
+    var bodyElement = document.querySelector("body");
+    bodyElement.style.overflowY = "scroll";
+  }, 3800);
 
   const onMouseMove = function (e) {
     TweenMax.to($bigBall, 0.3, {
@@ -63,6 +35,6 @@ window.onload = function () {
 
   window.addEventListener("mousemove", onMouseMove);
   setTimeout(function () {
-    scrollIntoSection("header-container");
+    scrollIntoSection("body");
   }, 100);
 };
