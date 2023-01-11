@@ -43,7 +43,9 @@
       >
         // experience
       </div>
-      <div class="nav-bar-element">// projects</div>
+      <div class="nav-bar-element" onclick="scrollIntoSection('projects');">
+        // projects
+      </div>
       <div class="nav-bar-element">// contact</div>
     </div>
     <div id="header-container" class="header-container">
@@ -911,86 +913,125 @@
         </div>
       </div>
       <div id="work-experience" class="work-experience-section">
-        <div class="section-title-container experience-section-title">
+        <div class="section-title-container work-experience-title">
           <div class="text fourth-color">work //<br />studies</div>
           <div class="text third-color">work //<br />studies</div>
           <div class="text">work //<br />studies</div>
         </div>
         <div class="work-experience-container">
           <div class="experience-container">
-            <div class="drawing-container">
+            <div class="experience-title">
               <div class="circle"></div>
-              <svg>
-                <path
-                  d="
-                M 8, 0
-                Q 10, 200
-                  200, 200
-                Q 390, 200
-                  390, 300
-              "
-                ></path>
-              </svg>
+              <span>Junior Software Engineer</span>
             </div>
-            <div class="text-container">
-              <div class="experience-title">Junior Software Engineer</div>
-              <div class="secondary-text">
-                Vitesco Technologies&nbsp;&nbsp;●&nbsp;&nbsp;Dec 2021 - Present
-              </div>
-              <div class="secondary-text">
-                Python UI Applications and Scripts for automation and process
-                improvement<br />Integration on Application Software Layer<br />Build
-                Management on electrification project<br />Software regression
-                tests<br />
-                Matlab Simulink Modeling with code generation
-              </div>
-            </div>
-          </div>
-          <div class="experience-container">
-            <div class="drawing-container right-drawing-container">
-              <div class="circle"></div>
-              <svg>
-                <path
-                  d="
-                  M 390 0
-                  Q 390 100
-                    200 100
-                  Q 10 100
-                    8 300
-                "
-                ></path>
-              </svg>
-            </div>
-            <div class="text-container">
-              <div class="experience-title">
-                Software Development Internship
-              </div>
-              <div class="secondary-text">
-                Vitesco Technologies&nbsp;&nbsp;●&nbsp;&nbsp;Apr 2021 - Dec 2021
-              </div>
-              <div class="secondary-text">
-                Python UI Applications and Scripts for automation and process
-                improvement<br />Software regression tests
-              </div>
-            </div>
-          </div>
-          <div class="experience-container">
-            <div class="drawing-container">
-              <div class="circle"></div>
+            <div class="experience-content">
               <div class="line"></div>
+              <div class="text-container">
+                <div class="secondary-text">
+                  Vitesco Technologies&nbsp;&nbsp;●&nbsp;&nbsp;Dec 2021 -
+                  Present
+                </div>
+                <div class="secondary-text">
+                  Python UI Applications and Scripts for automation and process
+                  improvement<br />Integration on Application Software Layer<br />Build
+                  Management on electrification project<br />Software regression
+                  tests<br />
+                  Matlab Simulink Modeling with code generation
+                </div>
+              </div>
             </div>
-            <div class="text-container">
-              <div class="experience-title">
-                Computer Science and Informatics
+          </div>
+          <div class="experience-container">
+            <div class="experience-title">
+              <div class="circle"></div>
+              <span>Software Development Internship</span>
+            </div>
+            <div class="experience-content">
+              <div class="line"></div>
+              <div class="text-container">
+                <div class="secondary-text">
+                  Vitesco Technologies&nbsp;&nbsp;●&nbsp;&nbsp;Apr 2021 - Dec
+                  2021
+                </div>
+                <div class="secondary-text">
+                  Python UI Applications and Scripts for automation and process
+                  improvement<br />Software regression tests
+                </div>
               </div>
-              <div class="secondary-text">
-                University of West from Timisoara&nbsp;&nbsp;●&nbsp;&nbsp;Sep
-                2019 - Jul 2022
+            </div>
+          </div>
+          <div class="experience-container">
+            <div class="experience-title">
+              <div class="circle"></div>
+              <span>Computer Science and Informatics</span>
+            </div>
+            <div class="experience-content">
+              <div class="line"></div>
+              <div class="text-container">
+                <div class="secondary-text">
+                  University of West from Timisoara&nbsp;&nbsp;●&nbsp;&nbsp;Sep
+                  2019 - Jul 2022
+                </div>
+                <div class="secondary-text">
+                  For the final exam I have created an UI application in Vitesco
+                  Technologies which<br />extracts data from the project
+                  specific to code, detailed design and unit testing,<br />afterwards
+                  generating an excel with the cohernece between them.<br />The
+                  coherence includes data types, activity diagrams, data names
+                  and many more features.
+                </div>
               </div>
-              <div class="secondary-text">
-                Python UI Applications and Scripts for automation and process
-                improvement<br />Software regression tests
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="projects" class="projects-section">
+        <div class="section-title-container projects-section-title">
+          <div class="text fourth-color">projects</div>
+          <div class="text third-color">projects</div>
+          <div class="text">projects</div>
+        </div>
+        <div class="projects-container">
+          <div class="project-container">
+            <div class="project-title">
+              <span>Personal Portfolio</span>
+            </div>
+            <div class="project-links">
+              <div class="split-container">
+                <a
+                  target="_blank"
+                  href="https://rafaelban.github.io"
+                  class="on-hover"
+                >
+                  <span>Go to site</span>
+                </a>
+                <img src="img/first_project_1.jpg" />
               </div>
+              <div class="split-container">
+                <a
+                  target="_blank"
+                  href="https://github.com/RafaelBan/rafaelban.github.io"
+                  class="on-hover"
+                >
+                  <span>Go to github</span>
+                </a>
+                <img src="img/first_project_2.jpg" />
+              </div>
+            </div>
+          </div>
+          <div class="project-container">
+            <div class="project-title">
+              <span>Coming soon...</span>
+            </div>
+          </div>
+          <div class="project-container">
+            <div class="project-title">
+              <span>Coming soon...</span>
+            </div>
+          </div>
+          <div class="project-container">
+            <div class="project-title">
+              <span>Coming soon...</span>
             </div>
           </div>
         </div>

@@ -52,7 +52,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* 
@@ -98,7 +98,7 @@ START NAV BAR
   visibility: 0;
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
-  animation: nav-bar 0.3s 3.4s forwards;
+  animation: nav-bar 0.5s 2.5s forwards;
 }
 
 @keyframes nav-bar {
@@ -202,7 +202,7 @@ START HELLO WORLD TEXT
   margin-top: 190px;
   width: 48px;
   height: 48px;
-  animation: links-container-a 0.5s 2.2s forwards;
+  animation: links-container-a 0.5s ease 2.5s forwards;
 }
 
 @keyframes links-container-a {
@@ -242,7 +242,7 @@ START HELLO WORLD TEXT
   margin-top: 190px;
   margin-bottom: 0px;
   transition: background-color 0.5s, color 0.5s;
-  animation: links-container-mail 0.5s 2.2s forwards;
+  animation: links-container-mail 0.5s ease 2.5s forwards;
 }
 
 .header-container
@@ -272,7 +272,7 @@ START MY NAME, POSITION AND PHOTO
   color: white;
   font-size: 120px;
   transform: translateX(-100vw);
-  animation: my-name-text 0.3s 2.5s forwards;
+  animation: my-name-text 0.5s ease 2.1s forwards;
 }
 
 @keyframes my-name-text {
@@ -297,7 +297,7 @@ START MY NAME, POSITION AND PHOTO
   -webkit-text-stroke: 0.5px var(--light);
   white-space: nowrap;
   transform: translateY(130px);
-  animation: current-position 0.3s 2.8s forwards;
+  animation: current-position 0.5s ease 2.5s forwards;
 }
 
 @keyframes current-position {
@@ -318,7 +318,7 @@ START MY NAME, POSITION AND PHOTO
   flex-direction: column;
   align-items: center;
   transform: translateX(calc(100vh + 650px));
-  animation: photo-carousel 0.3s 3.1s forwards;
+  animation: photo-carousel 0.5s ease 2.5s forwards;
 }
 
 @keyframes photo-carousel {
@@ -407,16 +407,14 @@ START SECTION TITLE
 */
 .section-title-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 430px;
   height: 80px;
 }
 
 .section-title-container .text {
   position: absolute;
-  margin-left: 0.6rem;
-  margin-top: 1.4rem;
+  margin-left: 0.4rem;
+  margin-top: 0.8rem;
   font-size: 5rem;
   color: var(--secondary-color);
   height: 5rem;
@@ -424,14 +422,14 @@ START SECTION TITLE
 
 .section-title-container .third-color {
   color: var(--third-color);
-  margin-left: 0.3rem;
-  margin-top: 1rem;
+  margin-left: 0.2rem;
+  margin-top: 0.6rem;
 }
 
 .section-title-container .fourth-color {
   color: var(--fourth-color);
   margin-left: 0rem;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
 }
 
 /*
@@ -873,15 +871,191 @@ START WORK EXPERIENCE SECTION
 
 .work-experience-section {
   position: relative;
-  height: 700px;
-  color: white;
-  box-shadow: none;
-  margin-top: 10px;
-  margin-left: -8px;
-  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 100px;
+}
+
+.work-experience-section .work-experience-title {
+  height: 200px;
+}
+
+.work-experience-section .work-experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.work-experience-section .work-experience-container .experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.work-experience-section
+  .work-experience-container
+  .experience-container
+  .experience-title {
+  display: flex;
+  width: fit-content;
+  background-color: var(--light);
+  color: var(--dark);
+  border-radius: 50px;
+  padding-right: 20px;
+  font-size: 35px;
+  height: 50px;
+  align-items: center;
+}
+
+.work-experience-section
+  .work-experience-container
+  .experience-container
+  .experience-title
+  .circle {
+  height: 20px;
+  width: 20px;
+  margin-left: 8px;
+  margin-right: 20px;
+  border: 10px solid var(--dark);
+  background-color: var(--light);
+  border-radius: 50%;
+}
+
+.work-experience-section
+  .work-experience-container
+  .experience-container
+  .experience-content {
+  display: flex;
+  gap: 17px;
+}
+
+.work-experience-section
+  .work-experience-container
+  .experience-container
+  .experience-content
+  .line {
+  width: 10px;
+  height: 100%;
+  border-radius: 10px;
+  margin-left: 23px;
+  margin-right: 23px;
+  background-color: var(--light);
+}
+
+.work-experience-section
+  .work-experience-container
+  .experience-container
+  .experience-content
+  .text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0.6;
 }
 /* 
 STOP WORK EXPERIENCE SECTION
+*/
+/*
+START PROJECTS SECTION
+*/
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 100px;
+}
+
+.projects-section .projects-section-title {
+  height: 150px;
+}
+
+.projects-section .projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.projects-section .projects-container .project-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 245px;
+  width: 500px;
+  border: 2px solid var(--light);
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.projects-section .projects-container .project-container .project-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light);
+  font-size: 25px;
+  height: 80px;
+  transition: color 0.3s;
+}
+
+.projects-section .projects-container .project-container .project-links {
+  display: flex;
+}
+
+.projects-section
+  .projects-container
+  .project-container
+  .project-links
+  .split-container {
+  position: relative;
+  cursor: pointer;
+  width: 250px;
+  height: 165px;
+}
+
+.projects-section
+  .projects-container
+  .project-container
+  .project-links
+  .split-container
+  .on-hover {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark);
+  color: var(--light);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.projects-section
+  .projects-container
+  .project-container
+  .project-links
+  .split-container:hover
+  .on-hover {
+  opacity: 0.6;
+}
+/*
+END PROJECTS SECTION
+*/
+/*
+START CONTACT SECTION
+*/
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 100px;
+}
+/*
+END CONTACT SECTION
 */
 /*
 END CONTENT
