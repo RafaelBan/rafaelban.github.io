@@ -1,5 +1,12 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,
+    shrink-to-fit=no"
+    />
+    <title>Rafael-Valentin Ban</title>
     <link type="text/css" rel="stylesheet" href="index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,43 +17,84 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-
-    <title>Rafael-Valentin Ban</title>
   </head>
-  <body id="body">
-    <div class="cursor">
-      <div class="ball" id="cursor-ball-big">
-        <svg height="30" width="30">
-          <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
-        </svg>
-      </div>
-
-      <div class="ball" id="cursor-ball-small">
-        <svg height="10" width="10">
-          <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
-        </svg>
-      </div>
+  <div class="cursor">
+    <div class="ball" id="cursor-ball-big">
+      <svg height="30" width="30">
+        <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+      </svg>
     </div>
+
+    <div class="ball" id="cursor-ball-small">
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+      </svg>
+    </div>
+  </div>
+  <body id="body">
     <div id="nav-bar" class="nav-bar">
-      <div class="nav-bar-element" onclick="scrollIntoSection('body');">
+      <div class="nav-bar-top">
+        <span>R-VB</span>
+        <svg
+          id="nav-bar-top-hamburger"
+          viewBox="0 0 10 8"
+          width="2.5rem"
+          height="6rem"
+        >
+          <path
+            d="M1 1h8M1 4h 8M1 7h8"
+            stroke="var(--light)"
+            stroke-width="1"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+      <div
+        class="nav-bar-element"
+        onclick="scrollIntoSection('body');"
+        onmouseout="setNavBarElementsOnOut(this)"
+        onmouseover="setNavBarElementsOnHover(this)"
+      >
         // home
       </div>
-      <div class="nav-bar-element" onclick="scrollIntoSection('main-content');">
+      <div
+        class="nav-bar-element"
+        onclick="scrollIntoSection('about-me');"
+        onmouseout="setNavBarElementsOnOut(this)"
+        onmouseover="setNavBarElementsOnHover(this)"
+      >
         // about me
       </div>
-      <div class="nav-bar-element" onclick="scrollIntoSection('skills');">
+      <div
+        class="nav-bar-element"
+        onclick="scrollIntoSection('skills');"
+        onmouseout="setNavBarElementsOnOut(this)"
+        onmouseover="setNavBarElementsOnHover(this)"
+      >
         // skills
       </div>
       <div
         class="nav-bar-element"
         onclick="scrollIntoSection('work-experience');"
+        onmouseout="setNavBarElementsOnOut(this)"
+        onmouseover="setNavBarElementsOnHover(this)"
       >
         // experience
       </div>
-      <div class="nav-bar-element" onclick="scrollIntoSection('projects');">
+      <div
+        class="nav-bar-element"
+        onclick="scrollIntoSection('projects');"
+        onmouseout="setNavBarElementsOnOut(this)"
+        onmouseover="setNavBarElementsOnHover(this)"
+      >
         // projects
       </div>
-      <div class="nav-bar-element" onclick="scrollIntoSection('contact');">
+      <div
+        class="nav-bar-element"
+        onclick="scrollIntoSection('contact');"
+        onmouseout="setNavBarElementsOnOut(this)"
+        onmouseover="setNavBarElementsOnHover(this)"
+      >
         // contact
       </div>
     </div>
@@ -96,7 +144,7 @@
           </a>
           <div class="mail-link-container">banrafael01@gmail.com</div>
         </div>
-        <span class="my-name-text">Rafael -Valentin Ban</span>
+        <span class="my-name-text">Rafael -<br />Valentin<br />Ban</span>
         <div class="current-position-container">
           <div class="current-position">
             Junior<br />Software<br />Developer
@@ -157,7 +205,6 @@
             </div>
             <div class="cup-body"></div>
           </div>
-          <div class="cup-handle"></div>
         </div>
         <div class="personal-description">
           My name is Rafael-Valentin Ban but let's resume it to Rafa, nice to
@@ -181,736 +228,682 @@
         </div>
         <div class="skill-category-container">
           <div class="skill-section-title">AUTOMOTIVE INDUSTRY SKILLS</div>
-          <div class="circles-container">
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 310"
-                ></circle>
-                <defs>
-                  <path
-                    id="text-circle-advanced"
-                    d="
+          <div class="content-contaier">
+            <div class="circles-container">
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 310"
+                  ></circle>
+                  <defs>
+                    <path
+                      id="text-circle-advanced"
+                      d="
                                     M 100, 100
                                     m -80, 0
                                     a 80,80 0 1,1 150,0
                                     a 80,80 0 1,1 -150,0"
-                  />
-                  <path
-                    id="text-circle-basic-newbie"
-                    d="
+                    />
+                    <path
+                      id="text-circle-basic-newbie"
+                      d="
                                     M 100, 100
                                     m -80, 0
                                     a 80,80 0 1,0 150,0
                                     a 80,80 0 1,0 -150,0"
-                  />
-                </defs>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 115px; margin-left: -110px"
-                >Software Integration</span
-              >
+                    />
+                  </defs>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Software Integration</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 360"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text"
+                  >Matlab Simulink Modeling<br />and Code Generation</span
+                >
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 200"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text"
+                  >Automation and Process<br />Improvement Scripts<br />with
+                  Python</span
+                >
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 450"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Build Management</span>
+              </div>
             </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 360"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 110px; margin-left: -140px"
-                >Matlab Simulink Modeling<br />and Code Generation</span
-              >
+            <div class="skill-hover-info">
+              <span class="current-skill">current skill</span>
+              <span class="skill-to-gain">skill to gain</span>
             </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 200"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 105px; margin-left: -130px"
-                >Automation and Process<br />Improvement Scripts<br />with
-                Python</span
-              >
-            </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 450"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 115px; margin-left: -100px"
-                >Build Management</span
-              >
-            </div>
-          </div>
-          <div class="skill-hover-info">
-            <span class="current-skill">current skill</span>
-            <span class="skill-to-gain">skill to gain</span>
           </div>
         </div>
         <div class="skill-category-container">
           <div class="skill-section-title">WEB DEVELOPMENT SKILLS</div>
-          <div class="circles-container">
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 360"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -90px"
-                >CSS / HTML</span
-              >
+          <div class="content-contaier">
+            <div class="circles-container">
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 360"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">CSS / HTML</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 455"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">JavaScript</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 455"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">CSS Tailwind</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 455"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">React Framework</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 455"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">C# .NET</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 360"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">PostgreSQL</span>
+              </div>
             </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 455"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -80px"
-                >JavaScript</span
-              >
+            <div class="skill-hover-info">
+              <span class="current-skill">current skill</span>
+              <span class="skill-to-gain">skill to gain</span>
             </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 455"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -90px"
-                >CSS Tailwind</span
-              >
-            </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 455"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -100px"
-                >React Framework</span
-              >
-            </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 455"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -80px"
-                >C# .NET</span
-              >
-            </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 360"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -80px"
-                >PostgreSQL</span
-              >
-            </div>
-          </div>
-          <div class="skill-hover-info">
-            <span class="current-skill">current skill</span>
-            <span class="skill-to-gain">skill to gain</span>
           </div>
         </div>
         <div class="skill-category-container">
           <div class="skill-section-title">SOFT SKILLS</div>
-          <div class="circles-container">
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 250"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -90px"
-                >Problem Solving</span
-              >
+          <div class="content-contaier">
+            <div class="circles-container">
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 250"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Problem Solving</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 250"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Creative Thinking</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 270"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Critical Thinking</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 220"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Adaptability</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 250"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Communication</span>
+              </div>
+              <div class="skill-container">
+                <svg class="svg-circle">
+                  <circle
+                    class="full-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="skill-circle-bar"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    style="--stroke-dashoffset-final-value: 260"
+                  ></circle>
+                </svg>
+                <svg class="skill-circle-text advanced-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-advanced">
+                      ADVANCED
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text basic-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      BASIC
+                    </textpath>
+                  </text>
+                </svg>
+                <svg class="skill-circle-text newbie-skill-level">
+                  <text>
+                    <textpath xlink:href="#text-circle-basic-newbie">
+                      NEWBIE
+                    </textpath>
+                  </text>
+                </svg>
+                <span class="skill-text">Time managament</span>
+              </div>
             </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 250"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -90px"
-                >Creative Thinking</span
-              >
+            <div class="skill-hover-info">
+              <span class="current-skill">current skill</span>
+              <span class="skill-to-gain">skill to gain</span>
             </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 270"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -85px"
-                >Critical Thinking</span
-              >
-            </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 220"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -80px"
-                >Adaptability</span
-              >
-            </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 250"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -80px"
-                >Communication</span
-              >
-            </div>
-            <div class="skill-container">
-              <svg class="svg-circle">
-                <circle
-                  class="full-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                ></circle>
-                <circle
-                  class="skill-circle-bar"
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  style="--stroke-dashoffset-final-value: 260"
-                ></circle>
-              </svg>
-              <svg class="skill-circle-text advanced-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-advanced">
-                    ADVANCED
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text basic-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    BASIC
-                  </textpath>
-                </text>
-              </svg>
-              <svg class="skill-circle-text newbie-skill-level">
-                <text>
-                  <textpath xlink:href="#text-circle-basic-newbie">
-                    NEWBIE
-                  </textpath>
-                </text>
-              </svg>
-              <span
-                class="skill-text"
-                style="margin-top: 120px; margin-left: -100px"
-                >Time managament</span
-              >
-            </div>
-          </div>
-          <div class="skill-hover-info">
-            <span class="current-skill">current skill</span>
-            <span class="skill-to-gain">skill to gain</span>
           </div>
         </div>
       </div>
@@ -1057,7 +1050,7 @@
       </div>
     </div>
     <div class="footer-section">
-      <div class="footer-links-container">
+      <div class="links-container">
         <a target="_blank" href="https://github.com/RafaelBan">
           <svg
             viewBox="0 0 24 24"

@@ -1,43 +1,44 @@
-:root {
+html {
   --light: #d8dbe0;
   --dark: #151515;
-  scroll-behavior: smooth;
-}
-
-:root:has(#first-image:checked) {
   --secondary-background: rgba(20, 32, 43, 1);
   --secondary-color: rgb(49, 80, 109);
   --third-color: rgb(100, 85, 65);
   --fourth-color: rgb(105, 105, 105);
-}
-
-:root:has(#second-image:checked) {
-  --secondary-background: rgba(48, 41, 31, 1);
-  --secondary-color: rgb(100, 85, 65);
-  --third-color: rgb(105, 105, 105);
-  --fourth-color: rgb(49, 80, 109);
-}
-
-:root:has(#third-image:checked) {
-  --secondary-background: rgba(45, 45, 45, 1);
-  --secondary-color: rgb(105, 105, 105);
-  --third-color: rgb(49, 80, 109);
-  --fourth-color: rgb(100, 85, 65);
+  scroll-behavior: smooth;
+  font-size: 16px;
+  min-height: 100vw;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  background: linear-gradient(
-    180deg,
-    var(--secondary-background) 5%,
-    var(--dark) 13%,
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#14202b+10,151515+15,151515+87,14202b+100 */
+  background-image: var(--dark); /* Old browsers */
+  background-image: -moz-linear-gradient(
+    top,
+    var(--secondary-background) 10%,
+    var(--dark) 15%,
     var(--dark) 87%,
     var(--secondary-background) 100%
-  );
+  ); /* FF3.6-15 */
+  background-image: -webkit-linear-gradient(
+    top,
+    var(--secondary-background) 10%,
+    var(--dark) 15%,
+    var(--dark) 87%,
+    var(--secondary-background) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background-image: linear-gradient(
+    to bottom,
+    var(--secondary-background) 10%,
+    var(--dark) 15%,
+    var(--dark) 87%,
+    var(--secondary-background) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14202b', endColorstr='#14202b',GradientType=0 ); /* IE6-9 */
   color: white;
-  margin: 0px;
+  margin: 0;
   font-family: "Comfortaa", sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -89,13 +90,13 @@ START NAV BAR
   overflow: hidden;
   justify-content: center;
   z-index: 10;
-  width: 100vw;
-  -moz-column-gap: 40px;
-  column-gap: 40px;
-  min-height: 95px;
-  height: 8vh;
+  width: 100%;
+  -moz-column-gap: 2.5rem;
+  column-gap: 2.5rem;
+  min-height: 6rem;
+  height: 8%;
   top: 0;
-  transform: translateY(-100vh);
+  transform: translateY(-100%);
   visibility: 0;
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
@@ -104,27 +105,36 @@ START NAV BAR
 
 @keyframes nav-bar {
   100% {
-    transform: translateX(0vh);
+    transform: translateX(0%);
     visibility: 1;
   }
+}
+
+.nav-bar .nav-bar-top {
+  display: none;
 }
 
 .nav-bar .nav-bar-element {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 10px;
-  min-height: 95px;
+  padding: 0px 0.6rem;
+  min-height: 6rem;
   color: white;
-  border-radius: 50px;
   cursor: pointer;
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, text-shadow 0.3s;
 }
 
-.nav-bar:has(.nav-bar-element:hover) .nav-bar-element:not(:hover) {
+/*
+.nav-bar .nav-bar-element:not(:hover) {
   opacity: 0.5;
   transition: opacity 0.3s;
+}
+*/
+
+.nav-bar .nav-bar-element:hover {
+  text-shadow: 1px 1px 2px var(--light);
 }
 
 /* 
@@ -137,12 +147,12 @@ START HELLO WORLD TEXT
 .header-container {
   position: relative;
   display: flex;
-  column-gap: 20vw;
-  justify-content: center;
-  width: 100vw;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
   opacity: 0;
-  min-height: 600px;
-  height: 92vh;
+  margin-top: 10rem;
   animation: header-container 1.5s forwards;
 }
 
@@ -154,19 +164,25 @@ START HELLO WORLD TEXT
 
 .header-container .big-hello-world {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   overflow: hidden;
   left: 50%;
-  top: 45%;
-  height: 6vw;
+  top: 22rem;
+  height: 15.5rem;
+  width: 100%;
   transform: translate(-50%, -50%);
 }
 
 .header-container .big-hello-world span {
   display: inline-block;
-  font-size: 6vw;
+  font-size: 3.5rem;
   letter-spacing: 5rem;
-  white-space: nowrap;
+  text-align: center;
+  user-select: none;
+  line-height: 7.5rem;
   margin-right: -5rem;
   margin-top: 0px;
   animation: big-hello-world 0.5s 2s forwards;
@@ -174,7 +190,7 @@ START HELLO WORLD TEXT
 
 @keyframes big-hello-world {
   100% {
-    margin-top: 7vw;
+    margin-top: 496px;
   }
 }
 
@@ -182,40 +198,39 @@ START HELLO WORLD TEXT
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 550px;
-  min-width: 550px;
+  gap: 1rem;
+  width: 34rem;
+  padding-left: 2.5rem;
 }
 
-.header-container .hello-world-name-container .links-container {
+.links-container {
   display: flex;
   overflow: hidden;
-  min-height: 180px;
-  height: 180px;
-  margin-left: 45px;
-  gap: 10px;
+  height: 3rem;
+  gap: 1rem;
 }
 
-.header-container .hello-world-name-container .links-container a {
+.links-container a {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 190px;
-  width: 48px;
-  height: 48px;
+  margin-top: 5rem;
+  width: 3rem;
+  height: 3rem;
   animation: links-container-a 0.5s ease 2.5s forwards;
 }
 
 @keyframes links-container-a {
   100% {
-    margin-top: 133px;
+    margin-top: 0rem;
   }
 }
 
-.header-container .hello-world-name-container .links-container a svg {
-  margin-bottom: 0px;
-  width: 30px;
-  height: 30px;
+.links-container a svg {
+  margin-bottom: 0rem;
+  width: 2rem;
+  height: 2rem;
   fill: none;
   stroke: var(--light);
   stroke-width: 1;
@@ -223,40 +238,34 @@ START HELLO WORLD TEXT
   transition: margin-bottom 0.3s;
 }
 
-.header-container .hello-world-name-container .links-container a:hover svg {
-  margin-bottom: 10px;
+.links-container a:hover svg {
+  margin-bottom: 1rem;
   transition: margin-bottom 0.3s;
 }
 
-.header-container
-  .hello-world-name-container
-  .links-container
-  .mail-link-container {
+.links-container .mail-link-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.8rem;
   border: 1px solid var(--light);
-  border-radius: 100px;
-  width: 170px;
-  height: 25px;
-  margin-top: 190px;
-  margin-bottom: 0px;
+  border-radius: 2rem;
+  padding: 0rem 1rem;
+  height: 1.8rem;
+  margin-top: 5rem;
+  margin-bottom: 0rem;
   transition: background-color 0.5s, color 0.5s;
   animation: links-container-mail 0.5s ease 2.5s forwards;
 }
 
-.header-container
-  .hello-world-name-container
-  .links-container
-  .mail-link-container:hover {
+.links-container .mail-link-container:hover {
   background-color: var(--light);
   color: var(--secondary-color);
 }
 
 @keyframes links-container-mail {
   100% {
-    margin-top: 144px;
+    margin-top: 0.5rem;
   }
 }
 
@@ -267,24 +276,21 @@ END HELLO WORLD TEXT
 START MY NAME, POSITION AND PHOTO
 */
 .header-container .hello-world-name-container .my-name-text {
-  width: 500px;
-  margin-top: 1rem;
-  margin-right: 50px;
   color: white;
-  font-size: 120px;
-  transform: translateX(-100vw);
+  font-size: 7.5rem;
+  transform: translateX(-800px);
   animation: my-name-text 0.5s ease 2.1s forwards;
 }
 
 @keyframes my-name-text {
   100% {
-    transform: translateX(40px);
+    transform: translateX(0px);
   }
 }
 
 .header-container .hello-world-name-container .current-position-container {
   position: absolute;
-  transform: translateY(470px) translateX(360px);
+  transform: translateY(20.8rem) translateX(20.5rem);
   overflow: hidden;
 }
 
@@ -293,32 +299,30 @@ START MY NAME, POSITION AND PHOTO
   .current-position-container
   .current-position {
   color: transparent;
-  font-size: 32px;
+  font-size: 2rem;
   text-align: right;
-  -webkit-text-stroke: 0.5px var(--light);
+  -webkit-text-stroke: 0.03rem var(--light);
   white-space: nowrap;
-  transform: translateY(130px);
+  transform: translateY(8.1rem);
   animation: current-position 0.5s ease 2.5s forwards;
 }
 
 @keyframes current-position {
   100% {
-    transform: translateY(0px);
+    transform: translateY(0rem);
   }
 }
 
 .header-container .photo-carousel {
-  margin-top: 170px;
-  width: 100%;
-  height: 100%;
-  max-width: 500px;
-  max-height: 400px;
+  margin-top: 3rem;
+  width: 31rem;
+  height: 25rem;
   transform-style: preserve-3d;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  transform: translateX(calc(100vh + 650px));
+  transform: translateX(calc(100% + 650px));
   animation: photo-carousel 0.5s ease 2.5s forwards;
 }
 
@@ -340,8 +344,8 @@ START MY NAME, POSITION AND PHOTO
 
 .header-container .photo-carousel .photo-cards .photo-card {
   position: absolute;
-  width: 300px;
-  height: 362px;
+  width: 18.8rem;
+  height: 22.6rem;
   left: 0;
   right: 0;
   margin: auto;
@@ -350,6 +354,8 @@ START MY NAME, POSITION AND PHOTO
 }
 
 .header-container .photo-carousel .photo-cards .photo-card img {
+  height: 100%;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -394,8 +400,10 @@ START CONTENT
   flex-direction: column;
   opacity: 0;
   gap: 200px;
-  padding: 100px 15vw 0 15vw;
+  padding: 13rem 15% 0 15%;
+  margin-top: 10rem;
   animation: main-content 0.3s 2.7s forwards;
+  transition: padding 0.5s;
 }
 
 @keyframes main-content {
@@ -408,8 +416,7 @@ START SECTION TITLE
 */
 .section-title-container {
   display: flex;
-  width: 430px;
-  height: 80px;
+  white-space: nowrap;
 }
 
 .section-title-container .text {
@@ -447,8 +454,12 @@ START ABOUT ME SECTION
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 50px;
   gap: 50px;
+}
+
+.main-content .about-me-section .about-me-section-title {
+  width: 25rem;
+  height: 5rem;
 }
 
 /* 
@@ -458,14 +469,14 @@ START COFFEE CUP
 .about-me-section .coffee-container {
   display: inline-block;
   overflow: hidden;
-  width: 400px;
-  height: 400px;
+  width: 20rem;
+  height: 20rem;
 }
 
 .about-me-section .coffee-container .cup {
   position: absolute;
-  height: 400px;
-  width: 400px;
+  height: 20rem;
+  width: 20rem;
   overflow: hidden;
   z-index: 9;
   transition: padding-left 0.5s;
@@ -473,29 +484,30 @@ START COFFEE CUP
 
 .about-me-section .coffee-container .cup .cup-body {
   position: absolute;
-  overflow: hidden;
-  max-height: 350px;
-  height: 300px;
-  width: 300px;
+  max-height: 14rem;
+  max-width: 14rem;
+  height: 14rem;
+  width: 14rem;
   background-image: linear-gradient(to right, #b9b9b9, #ffffff);
-  margin-left: 50px;
-  margin-top: 75px;
+  margin-left: 3rem;
+  margin-top: 4.8rem;
   border-bottom-left-radius: 100%50%;
   border-bottom-right-radius: 100%50%;
   z-index: 1;
-  transform: perspective(10px) rotateX(0deg);
-  transition: transform 0s, max-height 0.4s, margin-top 0.3s;
+  transition: border-bottom-left-radius 0.3s, border-bottom-right-radius 0.3s,
+    max-height 0.3s, max-width 0.3s, width 0.3s, margin-top 0.3s,
+    margin-left 0.3s;
 }
 
 .about-me-section .coffee-container .cup .cup-margin-shape {
   position: absolute;
-  max-height: 150px;
-  max-width: 300px;
-  height: 150px;
-  width: 300px;
+  max-height: 9.4rem;
+  max-width: 14rem;
+  height: 9.4rem;
+  width: 14rem;
   background-image: linear-gradient(to right, #b9b9b9, #ffffff);
-  margin-top: 0px;
-  margin-left: 50px;
+  margin-top: 0rem;
+  margin-left: 3rem;
   border-radius: 50%;
   z-index: 5;
   transition: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
@@ -505,13 +517,13 @@ START COFFEE CUP
 .about-me-section .coffee-container .cup .cup-black-shape {
   position: absolute;
   overflow: hidden;
-  max-height: 130px;
-  max-width: 280px;
-  height: 130px;
-  width: 280px;
+  max-height: 8.1rem;
+  max-width: 13rem;
+  height: 8.1rem;
+  width: 13rem;
   background-image: linear-gradient(to left, #151515 70%, #353535);
-  margin-top: 10px;
-  margin-left: 60px;
+  margin-top: 0.5rem;
+  margin-left: 3.5rem;
   border-radius: 50%;
   z-index: 5;
   transition: height 0.3s, max-height 0.3s, max-width 0.3s, width 0.3s,
@@ -520,12 +532,12 @@ START COFFEE CUP
 
 .about-me-section .coffee-container .cup .cup-black-shape .coffee {
   position: absolute;
-  max-height: 130px;
-  max-width: 280px;
-  height: 130px;
-  width: 280px;
+  max-height: 8.1rem;
+  max-width: 13rem;
+  height: 8.1rem;
+  width: 13rem;
   background-image: radial-gradient(#ca9970, #866247);
-  margin-top: 35px;
+  margin-top: 2rem;
   margin-left: 0;
   border-radius: 50%;
   z-index: 6;
@@ -535,12 +547,12 @@ START COFFEE CUP
 
 .about-me-section .coffee-container .cup .cup-black-shape .coffee .coffee-text {
   opacity: 1;
-  font-size: 110px;
+  font-size: 5rem;
   color: #e4cbb6;
-  padding-left: 15px;
-  margin-top: 0px;
-  margin-left: 0px;
-  transform: perspective(400px) rotateX(50deg) rotateZ(-1deg);
+  padding-left: 1rem;
+  margin-top: 1rem;
+  margin-left: -0.3rem;
+  transform: perspective(400px) rotateX(40deg) rotateZ(-1deg);
   transition: margin-left 0.3s, margin-top 0.3s, transform 0.3s, font-size 0.3s,
     opacity 0.3s;
 }
@@ -558,39 +570,44 @@ START COFFEE CUP ANIMATION
 */
 
 .about-me-section .coffee-container .cup:hover .cup-body {
-  max-height: 0px;
-  margin-top: 240px;
-  transform: perspective(10px) rotateX(-6deg);
-  transition: transform 0.7s 0.1s, max-height 0.5s 0.03s, margin-top 0.5s 0.03s;
+  margin-left: 1rem;
+  margin-top: 9.4rem;
+  max-height: 0rem;
+  width: 17.5rem;
+  max-width: 17.5rem;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transition: border-bottom-left-radius 0.1s, border-bottom-right-radius 0.1s,
+    max-height 1s, max-width 0.6s, width 0.6s, margin-top 0.5s, margin-left 1s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-margin-shape {
-  max-height: 400px;
-  margin-left: 0px;
-  height: 400px;
-  max-width: 400px;
-  width: 400px;
+  max-height: 18.5rem;
+  margin-left: 1rem;
+  height: 18.5rem;
+  max-width: 18.5rem;
+  width: 18.5rem;
   transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
     margin-left 0.5s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-black-shape {
-  max-height: 380px;
-  margin-left: 10px;
-  height: 380px;
-  max-width: 380px;
-  width: 380px;
+  max-height: 17.5rem;
+  margin-left: 1.5rem;
+  height: 17.5rem;
+  max-width: 17.5rem;
+  width: 17.5rem;
   transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
     margin-left 0.5s;
 }
 
 .about-me-section .coffee-container .cup:hover .cup-black-shape .coffee {
-  max-height: 380px;
-  margin-left: 0px;
-  margin-top: 0px;
-  height: 380px;
-  max-width: 380px;
-  width: 380px;
+  max-height: 17.5rem;
+  margin-left: 0rem;
+  margin-top: 0rem;
+  height: 17.5rem;
+  max-width: 17.5rem;
+  width: 17.5rem;
   transition: max-height 0.5s, height 0.5s, max-width 0.5s, width 0.5s,
     margin-left 0.5s, margin-top 0.5s;
 }
@@ -601,9 +618,9 @@ START COFFEE CUP ANIMATION
   .cup-black-shape
   .coffee
   .coffee-text {
-  font-size: 140px;
-  margin-left: 15px;
-  margin-top: 110px;
+  font-size: 6.8rem;
+  margin-left: 0.25rem;
+  margin-top: 5.3rem;
   transform: perspective(400px) rotateX(0deg);
   opacity: 0;
   transition: margin-left 0.5s, margin-top 0.5s, transform 0.5s,
@@ -616,10 +633,10 @@ START COFFEE CUP ANIMATION
   .cup-black-shape
   .coffee
   .joke-text {
-  margin-left: 0px;
-  margin-top: -120px;
+  margin-left: 0rem;
+  margin-top: -6.8rem;
   opacity: 1;
-  font-size: 18px;
+  font-size: 1rem;
   transition: margin-left 0s 1s, margin-top 0s 1s, opacity 0.5s 1s,
     font-size 0s 1s;
 }
@@ -636,8 +653,8 @@ START PERSONAL DESCRIPTION
 
 .about-me-section .personal-description {
   display: inline-block;
-  font-size: 25px;
-  width: 68vw;
+  font-size: 1.5rem;
+  width: 68%;
   vertical-align: top;
 }
 
@@ -653,25 +670,27 @@ START SKILLS SECTION
 .skills-section {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  height: auto;
+  gap: 3rem;
   width: 100%;
   color: white;
   overflow: hidden;
-  padding-top: 100px;
+  padding-top: 6.2rem;
 }
 
 .skills-section .skills-section-title {
-  margin-left: 150px;
+  margin-left: 11%;
+  width: 13rem;
+  height: 5.3rem;
 }
 
 .skills-section .skill-category-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--dark);
-  box-shadow: inset 0px 0px 0px 5px var(--light);
-  min-height: 300px;
+  box-shadow: inset 0px 0px 0px 0.3rem var(--light);
   width: 100%;
-  border-radius: 100px;
+  border-radius: 6.2rem;
   transition: background-color 0.5s;
 }
 
@@ -679,21 +698,12 @@ START SKILLS SECTION
   background-color: var(--light);
 }
 
-.skills-section .skill-category-container .circles-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  overflow: hidden;
-  transition: width 0.5s;
-}
-
 .skills-section .skill-category-container .skill-section-title {
-  width: 220px;
+  width: 18rem;
   align-self: center;
   text-align: center;
-  margin-right: 90px;
-  margin-left: 50px;
-  font-size: 30px;
+  margin: 4rem;
+  font-size: 2.5rem;
   color: var(--light);
   transition: color 0.5s;
 }
@@ -702,17 +712,36 @@ START SKILLS SECTION
   color: var(--dark);
 }
 
-.skills-section .skill-category-container .circles-container .skill-container {
+.skills-section .skill-category-container .content-contaier {
+  display: flex;
+  width: 100%;
+}
+
+.skills-section .skill-category-container .content-contaier .circles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+}
+
+.skills-section
+  .skill-category-container
+  .content-contaier
+  .circles-container
+  .skill-container {
+  display: flex;
   position: relative;
   text-align: center;
+  align-items: center;
   width: 300px;
   height: 250px;
-  font-size: 0px;
   transition: width 0.3s, font-size 0.3s;
 }
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .svg-circle {
@@ -726,6 +755,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .svg-circle
@@ -741,6 +771,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container:hover
+  .content-contaier
   .circles-container
   .skill-container
   .svg-circle
@@ -750,6 +781,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .svg-circle
@@ -765,6 +797,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container:hover
+  .content-contaier
   .circles-container
   .skill-container
   .svg-circle
@@ -774,6 +807,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .skill-circle-text {
@@ -789,6 +823,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container:hover
+  .content-contaier
   .circles-container
   .skill-container
   .skill-circle-text {
@@ -797,6 +832,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .advanced-skill-level {
@@ -807,6 +843,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .basic-skill-level {
@@ -817,6 +854,7 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .newbie-skill-level {
@@ -827,17 +865,19 @@ START SKILLS SECTION
 
 .skills-section
   .skill-category-container
+  .content-contaier
   .circles-container
   .skill-container
   .skill-text {
-  position: absolute;
-  font-size: 14px;
+  width: 210px;
+  font-size: 1.2rem;
   color: var(--light);
   transition: color 0.5s;
 }
 
 .skills-section
   .skill-category-container:hover
+  .content-contaier
   .circles-container
   .skill-container
   .skill-text {
@@ -845,23 +885,31 @@ START SKILLS SECTION
   transition: color 0.5s;
 }
 
-.skills-section .skill-category-container .skill-hover-info {
+.skills-section .skill-category-container .content-contaier .skill-hover-info {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 100px;
-  font-size: 12px;
+  font-size: 1rem;
   width: 20px;
 }
 
-.skills-section .skill-category-container .current-skill {
+.skills-section
+  .skill-category-container
+  .content-contaier
+  .skill-hover-info
+  .current-skill {
   color: var(--light);
   width: 100px;
   transform: rotate(-90deg) translateY(-10px);
 }
 
-.skills-section .skill-category-container .skill-to-gain {
+.skills-section
+  .skill-category-container
+  .content-contaier
+  .skill-hover-info
+  .skill-to-gain {
   color: var(--dark);
   width: 100px;
   transform: rotate(-90deg) translateY(-10px);
@@ -878,26 +926,27 @@ START WORK EXPERIENCE SECTION
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding-top: 100px;
+  gap: 3rem;
+  padding-top: 6.25rem;
 }
 
 .work-experience-section .work-experience-title {
-  margin-left: 150px;
-  height: 200px;
+  margin-left: 11%;
+  width: 19rem;
+  height: 11rem;
 }
 
 .work-experience-section .work-experience-container {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
-  gap: 50px;
+  margin-left: 3rem;
+  gap: 3rem;
 }
 
 .work-experience-section .work-experience-container .experience-container {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 3rem;
 }
 
 .work-experience-section
@@ -906,13 +955,14 @@ START WORK EXPERIENCE SECTION
   .experience-title {
   display: flex;
   width: fit-content;
+  align-items: center;
   background-color: var(--light);
   color: var(--dark);
-  border-radius: 50px;
-  padding-right: 20px;
-  font-size: 35px;
-  height: 50px;
-  align-items: center;
+  border-radius: 3rem;
+  padding-right: 1.25rem;
+  font-size: 2rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .work-experience-section
@@ -920,13 +970,15 @@ START WORK EXPERIENCE SECTION
   .experience-container
   .experience-title
   .circle {
-  height: 20px;
-  width: 20px;
-  margin-left: 8px;
-  margin-right: 20px;
-  border: 10px solid var(--dark);
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-left: 0.5rem;
+  margin-right: 1.25rem;
+  border: 0.65rem solid var(--dark);
   background-color: var(--light);
-  border-radius: 50%;
+  border-radius: 3rem;
 }
 
 .work-experience-section
@@ -934,7 +986,7 @@ START WORK EXPERIENCE SECTION
   .experience-container
   .experience-content {
   display: flex;
-  gap: 17px;
+  gap: 1rem;
 }
 
 .work-experience-section
@@ -942,11 +994,10 @@ START WORK EXPERIENCE SECTION
   .experience-container
   .experience-content
   .line {
-  width: 10px;
-  height: 100%;
-  border-radius: 10px;
-  margin-left: 23px;
-  margin-right: 23px;
+  width: 1rem;
+  border-radius: 0.6rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   background-color: var(--light);
 }
 
@@ -957,7 +1008,7 @@ START WORK EXPERIENCE SECTION
   .text-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.6rem;
   opacity: 0.6;
 }
 /* 
@@ -969,19 +1020,20 @@ START PROJECTS SECTION
 .projects-section {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding-top: 100px;
+  gap: 3rem;
+  padding-top: 6.25rem;
 }
 
 .projects-section .projects-section-title {
-  margin-left: 200px;
-  height: 150px;
+  margin-left: 11%;
+  width: 21rem;
+  height: 6.25rem;
 }
 
 .projects-section .projects-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 3rem;
   justify-content: center;
 }
 
@@ -991,10 +1043,10 @@ START PROJECTS SECTION
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  height: 245px;
-  width: 500px;
-  border: 2px solid var(--light);
-  border-radius: 20px;
+  height: 15.3rem;
+  width: 31.25rem;
+  border: 0.125rem solid var(--light);
+  border-radius: 1.25rem;
   transition: background-color 0.3s;
 }
 
@@ -1003,8 +1055,8 @@ START PROJECTS SECTION
   justify-content: center;
   align-items: center;
   color: var(--light);
-  font-size: 25px;
-  height: 80px;
+  font-size: 1.5rem;
+  height: 5rem;
   transition: color 0.3s;
 }
 
@@ -1019,8 +1071,16 @@ START PROJECTS SECTION
   .split-container {
   position: relative;
   cursor: pointer;
-  width: 250px;
-  height: 165px;
+}
+
+.projects-section
+  .projects-container
+  .project-container
+  .project-links
+  .split-container
+  img {
+  width: 100%;
+  height: 100%;
 }
 
 .projects-section
@@ -1061,12 +1121,13 @@ START CONTACT SECTION
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 200px;
-  padding-top: 100px;
+  gap: 15rem;
+  padding-top: 6.25rem;
 }
 
 .contact-section .contact-section-title {
-  width: 330px;
+  width: 21rem;
+  height: 5rem;
 }
 
 .contact-section .contact-button-container {
@@ -1074,24 +1135,24 @@ START CONTACT SECTION
 }
 
 .contact-section .contact-button-container .contact-button {
-  height: 150px;
+  height: 9.4rem;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
-  border: 2px solid var(--light);
-  border-radius: 30px;
+  border-radius: 2rem;
   text-align: center;
+  box-shadow: inset 0 0 0 0.125rem var(--light), 0 0 0 0.125rem var(--light);
 }
 
 .contact-section .contact-button-container .contact-button .message-version {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35vw;
-  height: 150px;
+  width: 100%;
+  height: 9.4rem;
   background-color: var(--light);
   color: var(--dark);
-  font-size: 30px;
+  font-size: 2rem;
   transition: transform 0.5s;
 }
 
@@ -1099,7 +1160,7 @@ START CONTACT SECTION
   .contact-button-container
   .contact-button:hover
   .message-version {
-  transform: translateY(-155px);
+  transform: translateY(-9.6rem);
 }
 
 .contact-section
@@ -1107,29 +1168,27 @@ START CONTACT SECTION
   .contact-button
   .message-version
   span {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 3rem;
 }
 
 .contact-section .contact-button-container .contact-button .mail-version {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35vw;
-  height: 150px;
+  width: 100%;
+  height: 9.4rem;
   background-color: var(--dark);
   color: var(--light);
-  font-size: 30px;
+  font-size: 2rem;
   transition: transform 0.5s;
 }
 
 .contact-section .contact-button-container .contact-button:hover .mail-version {
-  transform: translateY(-150px);
+  transform: translateY(-9.4rem);
 }
 
 .contact-section .contact-button-container .contact-button .mail-version span {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 3rem;
   word-break: break-all;
 }
 /*
@@ -1146,47 +1205,147 @@ START FOOTER
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
-  padding-bottom: 50px;
-}
-
-.footer-section .footer-links-container {
-  display: flex;
-  overflow: hidden;
-  min-height: 64px;
-  height: 64px;
-  gap: 10px;
-}
-
-.footer-section .footer-links-container a {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
-}
-
-.footer-section .footer-links-container a svg {
-  margin-bottom: 0px;
-  width: 30px;
-  height: 30px;
-  fill: none;
-  stroke: var(--light);
-  stroke-width: 1;
-  stroke-miterlimit: 10;
-  transition: margin-bottom 0.3s;
-}
-
-.footer-section .footer-links-container a:hover svg {
-  margin-bottom: 10px;
-  transition: margin-bottom 0.3s;
+  margin-top: 15rem;
+  padding-bottom: 3rem;
+  gap: 2rem;
 }
 
 .footer-section .copyright-text-container {
-  font-size: 12px;
+  font-size: 0.75rem;
   opacity: 0.6;
 }
 /*
 END FOOTER
+*/
+
+/*
+START MOBILE VERSION
+*/
+
+@media only screen and (max-width: 1100px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 6.25rem;
+    margin-top: 4rem;
+  }
+
+  .header-container .photo-carousel {
+    margin-top: 0px;
+  }
+
+  .skills-section .skill-category-container {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .nav-bar {
+    flex-direction: column;
+    justify-content: left;
+    height: 95px;
+  }
+
+  .nav-bar .nav-bar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .nav-bar .nav-bar-top span {
+    margin-left: 50px;
+    font-size: 2rem;
+  }
+
+  .nav-bar .nav-bar-top svg {
+    cursor: pointer;
+    margin-right: 50px;
+  }
+
+  .nav-bar.nav-open {
+    height: 665px;
+  }
+
+  .nav-bar .nav-bar-top .nav-open-hamburger {
+    transform: rotate(-90deg);
+  }
+
+  .projects-section {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .projects-section .projects-section-title {
+    margin-left: 0%;
+  }
+
+  .work-experience-section {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .work-experience-section .work-experience-title {
+    margin-left: 0%;
+  }
+
+  .skills-section {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skills-section .skills-section-title {
+    margin-left: 0%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+
+  .nav-bar {
+    height: 72px;
+  }
+
+  .nav-bar.nav-open {
+    height: 504px;
+  }
+
+  .work-experience-section .work-experience-container {
+    margin-left: 0rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 8px;
+  }
+
+  .nav-bar {
+    height: 48px;
+  }
+
+  .nav-bar.nav-open {
+    height: 336px;
+  }
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+
+  .projects-section
+    .projects-container
+    .project-container
+    .project-links
+    .split-container
+    .on-hover {
+    opacity: 0.6;
+  }
+}
+/*
+END MOBILE VERSION
 */
