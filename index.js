@@ -38,7 +38,6 @@ window.onload = function () {
   const $smallBall = document.getElementById("cursor-ball-small");
   const $navBarTopHamburger = document.getElementById("nav-bar-top-hamburger");
   const $navBar = document.getElementById("nav-bar");
-  const $navBarElements = $navBar.getElementsByClassName("nav-bar-element");
   const $html = document.documentElement;
   const $firstImage = document.getElementById("first-image");
   const $secondImage = document.getElementById("second-image");

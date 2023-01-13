@@ -170,7 +170,7 @@ START HELLO WORLD TEXT
   color: white;
   overflow: hidden;
   left: 50%;
-  top: 22rem;
+  top: 16rem;
   height: 15.5rem;
   width: 100%;
   transform: translate(-50%, -50%);
@@ -400,8 +400,8 @@ START CONTENT
   flex-direction: column;
   opacity: 0;
   gap: 200px;
-  padding: 13rem 15% 0 15%;
-  margin-top: 10rem;
+  padding: 14rem 15% 0 15%;
+  margin-top: 9rem;
   animation: main-content 0.3s 2.7s forwards;
   transition: padding 0.5s;
 }
@@ -817,7 +817,6 @@ START SKILLS SECTION
   left: 50%;
   top: 50%;
   font-size: 11px;
-  font-weight: 700;
   fill: rgba(0, 0, 0, 0.9);
 }
 
