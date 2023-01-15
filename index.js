@@ -1,5 +1,17 @@
 const scrollIntoSection = function (sectionName) {
-  document.getElementById(sectionName).scrollIntoView(true);
+  const $navBar = document.getElementById("nav-bar");
+  const $navBarTopHamburger = document.getElementById("nav-bar-top-hamburger");
+  if ($navBarTopHamburger.classList.contains("nav-open-hamburger")) {
+    $navBarTopHamburger.classList.remove("nav-open-hamburger");
+    $navBar.style.transition = "height 0.3s";
+    $navBar.classList.remove("nav-open");
+    setTimeout(function () {
+      $navBar.style.transition = "none";
+    }, 300);
+  }
+  setTimeout(function () {
+    document.getElementById(sectionName).scrollIntoView(true);
+  }, 300);
 };
 
 const getElementHeight = function (el) {
@@ -36,8 +48,8 @@ const setNavBarElementsOnOut = function (el) {
 window.onload = function () {
   const $bigBall = document.getElementById("cursor-ball-big");
   const $smallBall = document.getElementById("cursor-ball-small");
-  const $navBarTopHamburger = document.getElementById("nav-bar-top-hamburger");
   const $navBar = document.getElementById("nav-bar");
+  const $navBarTopHamburger = document.getElementById("nav-bar-top-hamburger");
   const $html = document.documentElement;
   const $firstImage = document.getElementById("first-image");
   const $secondImage = document.getElementById("second-image");
