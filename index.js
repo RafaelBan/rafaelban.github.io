@@ -15,7 +15,7 @@ const scrollIntoSection = function (sectionName) {
 };
 
 const getElementHeight = function (el) {
-  var elementHeight;
+  let elementHeight;
   if (el.offsetHeight) {
     elementHeight = el.offsetHeight;
   } else {
@@ -56,7 +56,7 @@ window.onload = function () {
   const $thirdImage = document.getElementById("third-image");
 
   setTimeout(function () {
-    var bodyElement = document.querySelector("body");
+    let bodyElement = document.querySelector("body");
     bodyElement.style.overflowY = "scroll";
   }, 3800);
 
@@ -128,3 +128,27 @@ window.onload = function () {
     }
   });
 };
+
+$(window).scroll(function() {
+  addFadeIn();
+});
+
+function addFadeIn() {
+  let classToFadeIn = ".will-fadeIn";
+  
+  $(classToFadeIn).each(function() {
+      let isElementInViewValue = isElementInView($(this), false);
+      if (isElementInViewValue) {
+          $(this).addClass("fadeIn");
+      }
+  });
+}
+
+function isElementInView(element) {
+  let pageTop = $(window).scrollTop();
+  let pageBottom = pageTop + $(window).height();
+  let elementTop = $(element).offset().top;
+  let elementBottom = elementTop + $(element).height();
+
+  return ((elementTop <= pageBottom - 300) && (elementBottom >= pageTop));
+}
