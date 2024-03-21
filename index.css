@@ -83,19 +83,19 @@ END CURSOR
 /*
 START ELEMENTS FADE IN
 */
-.will-fadeIn{
+.will-fadeIn {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
 }
 
 .fadeIn {
-  animation: fadeIn .5s ease .1s forwards;
+  animation: fadeIn 0.5s ease 0.1s forwards;
 }
 
 @keyframes fadeIn {
   to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 /*
@@ -880,7 +880,6 @@ START SKILLS SECTION
   .skill-category-container
   .content-contaier
   .circles-container
-  .skill-container
   .skill-text {
   width: 210px;
   font-size: 1.2rem;
@@ -892,7 +891,6 @@ START SKILLS SECTION
   .skill-category-container:hover
   .content-contaier
   .circles-container
-  .skill-container
   .skill-text {
   color: var(--dark);
   transition: color 0.5s;
@@ -991,6 +989,22 @@ START WORK EXPERIENCE SECTION
   margin-right: 1.25rem;
   border: 0.65rem solid var(--dark);
   background-color: var(--light);
+  border-radius: 3rem;
+}
+
+.work-experience-section
+  .work-experience-container
+  .experience-container
+  .experience-title
+  .active-circle {
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-left: 0.5rem;
+  margin-right: 1.25rem;
+  border: 0.65rem solid var(--dark);
+  background-color: var(--secondary-color);
   border-radius: 3rem;
 }
 
